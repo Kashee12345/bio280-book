@@ -7763,7 +7763,7 @@ function openBestiary(){
     document.body.appendChild(popup);
   }
   
-  const bossIds=['homeostasis','cytology','integumentary','skeletal','muscular','nervous','sensation'];
+  const bossIds=(typeof ZONES!=='undefined'?ZONES.map(function(z){return z.id;}):[]);
   const enemyIds=['ghoul','slime','bat','skull','eyeball','microbe','virus','platelet','neuron_e','enzyme'];
   const totalDiscovered=Object.keys(bestiaryData).filter(k=>bestiaryData[k]&&(bestiaryData[k].encounters>0||bestiaryData[k].defeated)).length;
   const totalEntries=bossIds.length+enemyIds.length;
@@ -11538,5 +11538,210 @@ function closeTrophyDetail(){
   </div>
   <button id="trophy-close-btn" onclick="closeTrophyRoom()">← EXIT HALL</button>
 </div>
+
+<!--QUEST-UPGRADE:START-->
+<script>
+window.QUPC = {"key": "pq_bio280", "course": "PathoQuest · BIO 280 (Joyce)", "cardsTitle": "PathoQuest · BIO 280 (Joyce) · The Zone Bosses", "sprintName": "Sequence Sprint", "sprintIcon": "🧬"};
+window.QUP_SEQ = [{"id": "raas", "ch": "1", "title": "The RAAS pathway", "prompt": "Earliest step first", "steps": ["Kidneys sense low blood pressure or low renal perfusion", "Juxtaglomerular cells release renin", "Renin converts angiotensinogen to angiotensin I", "ACE converts angiotensin I to angiotensin II", "Angiotensin II constricts vessels and triggers aldosterone release", "Kidneys retain sodium and water", "Blood volume and blood pressure rise"], "cite": "BIO280 Week 1 deck (Fluid, Electrolytes, ABGs), slide 6 RAAS System; course book, Cardiovascular: How the body keeps it steady"}, {"id": "viral-replication", "ch": "1", "title": "Viral replication", "prompt": "Earliest step first", "steps": ["Attachment: the virus finds the tissue it likes", "Penetration: viral material is pushed into the host cell", "Uncoating: viral genetic material is released into the cell", "Replication: the host cell is used to make viral parts", "Assembly: the pieces are put together into new viruses", "Release: new viruses leave to infect more cells"], "cite": "BIO280 Week 2 deck (Pathogens and Immune Disorders), slide 10 Viral Replication Process"}, {"id": "hypoxic-injury", "ch": "2", "title": "Hypoxic cell injury", "prompt": "Earliest step first", "steps": ["Oxygen delivery to the cell falls (hypoxia or ischemia)", "ATP production drops; only anaerobic metabolism remains", "The sodium-potassium pump fails", "Sodium and water rush in: the cell swells (still reversible)", "Mitochondria rupture and calcium floods into the cell", "Enzymes digest the cell: membrane integrity lost, irreversible"], "cite": "Course book, Foundations: When the fuel runs out (hypoxia and ischemia); BIO280 Exam 2 Review deck, slide 6 Cellular Impacts of Hypoxia"}, {"id": "cancer-progression", "ch": "2", "title": "From normal tissue to metastatic cancer", "prompt": "Earliest stage first", "steps": ["Normal tissue: cells organized and controlled", "Hyperplasia: too many cells, but they still look normal", "Dysplasia: disordered, abnormal cells (precancerous, reversible)", "Carcinoma in situ: cancerous cells above the basement membrane", "Invasive cancer: cells break through the basement membrane", "Metastasis: cancer spreads to distant sites"], "cite": "Course book, Oncology: The multistep journey (how tissue changes over time); BIO280 Week 3 deck, slides 10, 12 and 16"}, {"id": "icp-herniation", "ch": "3", "title": "Rising ICP to herniation", "prompt": "Earliest step first", "steps": ["Added volume (bleed, tumor, edema, CSF backup) fills the skull", "Compensation: CSF shunts to spinal canal, venous blood squeezed out", "Buffers used up: a small added volume now spikes ICP steeply", "Earliest sign: change in level of consciousness, falling GCS", "Cushing's triad: hypertension, bradycardia, slowed breathing", "Herniation crushes the brainstem: fixed, dilated pupil", "Respiratory arrest and death"], "cite": "Course book, Neurology: Monro-Kellie doctrine, earliest warning, Cushing's triad, Herniation; BIO280 Final Exam Review deck, slide 61 ICP and Cushing's Triad"}, {"id": "dka-acidosis", "ch": "4", "title": "How DKA makes the blood acidic", "prompt": "Earliest step first", "steps": ["Type 1 diabetes: absolute insulin deficiency", "Glucose cannot enter cells, so the body burns fat for fuel", "Fat breakdown produces acidic ketones", "Ketones build up: pH falls below 7.35 (metabolic acidosis)", "Kussmaul respirations: deep, rapid breaths blow off CO2"], "cite": "Course book, Endocrine: The two emergencies (DKA vs HHS) and Foundations: Compensation; BIO280 Exam 4 Review deck, slide 34 DKA vs HHS; Final Exam Review deck, slide 79"}, {"id": "hemostasis", "ch": "5", "title": "Hemostasis: plugging a leak", "prompt": "Earliest step first", "steps": ["Vasoconstriction: the injured vessel clamps down", "Platelets stick to exposed collagen, bridged by vWF", "Platelets activate and clump into a soft platelet plug", "Coagulation cascade: clotting factors activate one another", "Prothrombin is converted to thrombin", "Thrombin converts fibrinogen to fibrin: a stable clot", "Fibrinolysis dissolves the clot once healing is underway"], "cite": "Course book, Hematology: Normal hemostasis (how the body plugs a leak); BIO280 Week 9 deck, slide 14 Coagulation Cascade"}, {"id": "atherosclerosis-mi", "ch": "5", "title": "Atherosclerosis to myocardial infarction", "prompt": "Earliest step first", "steps": ["Damage to the endothelial lining", "Fatty streak formation", "Fibrous plaque narrows the lumen", "Complicated lesion: the plaque becomes unstable and ruptures", "Platelets and clotting factors form a thrombus on the rupture", "The thrombus completely blocks the coronary artery", "Downstream heart muscle dies (MI) within about 20-30 minutes"], "cite": "BIO280 Week 9 deck, slide 38 Coronary Artery Disease (4 Steps of Atherosclerosis); course book, Cardiovascular: When the pipe closes (myocardial infarction)"}, {"id": "hydronephrosis", "ch": "6", "title": "Hydroureter to hydronephrosis", "prompt": "Earliest step first", "steps": ["Occlusion of the ureter: urine accumulates", "Dilation of the ureter (hydroureter)", "Dilation of the renal pelvis (hydronephrosis)", "Decreased glomerular blood flow (lower GFR), increased pressure", "Loss of nephrons", "Inability to concentrate urine"], "cite": "Bio 280 Week 11 deck (Renal), slide 17 Hydroureter"}, {"id": "liver-varices", "ch": "Final", "title": "Hepatitis to variceal bleeding", "prompt": "Earliest stage first", "steps": ["Acute hepatitis: hepatocytes inflamed by virus, alcohol or drugs", "Chronic hepatitis: inflammation persists longer than 6 months", "Cirrhosis: permanent scarring and fibrosis of the liver", "Scar tissue squeezes portal channels: portal hypertension", "Blood detours through small veins that balloon into varices", "Fragile esophageal varices rupture: massive bleeding"], "cite": "Bio 280 Week 14 deck (Liver/Biliary/Reproductive), slide 3 Stages of Liver Disease; course book, Digestive: Portal hypertension and its downstream chaos"}];
+window.QUP_BESTIARY = {"zone1": {"name": "The Ion Disruptor", "type": "Elemental", "lore": "It lives in the gap between the kidney and the blood, loosening the grip of RAAS, ADH and ANP until sodium, potassium and calcium drift out of range. It feeds on uncorrected acid-base errors: it loves a metabolic acidosis nobody compensated for and a pH nobody checked against the PaCO2 and HCO3. When the fluid defenses fall it opens the gate to infection, from a simple UTI to the CD4 collapse of HIV.", "weak": "Read the ABG in order (pH, PaCO2, HCO3, compensation), know which hormone saves or sheds sodium and water, and match each electrolyte to its signature (peaked T waves, tetany, weakness). Know innate from adaptive immunity."}, "zone2": {"name": "The Mutagen", "type": "Aberration", "lore": "It began as a single injured cell that adapted instead of dying: atrophy, hypertrophy, hyperplasia, then metaplasia and dysplasia, until one mutation too many made it malignant. It grows without contact inhibition, invades the basement membrane and rides the blood and lymph to distant sites. It hides behind inflammation, pushing SIRS toward sepsis, and it hates a body that heals by clean regeneration instead of scar.", "weak": "Separate reversible from irreversible cell injury, benign from malignant (differentiation, invasion, metastasis), and grading from TNM staging. Know the cardinal signs of inflammation and the phases of wound healing."}, "zone3": {"name": "The Brain Storm", "type": "Tempest", "lore": "A storm inside a closed box. It raises intracranial pressure until the Monro-Kellie balance fails, bleeds between the dura and the skull or beneath it, and blocks a cerebral artery until the penumbra dies. Late in the fight it shows the Cushing triad and pushes tissue toward herniation. Its lesser winds cause spinal cord injury below the level of the lesion, neurodegeneration and disorders of mood, bone and skin.", "weak": "Tell ischemic from hemorrhagic stroke, epidural from subdural hematoma, and early from late signs of rising ICP (a change in level of consciousness comes first; Cushing triad is late)."}, "zone4": {"name": "The Hormone Overlord", "type": "Sovereign", "lore": "It rules from the hypothalamus and pituitary, where every axis answers to negative feedback, and it rewrites the orders. Too much thyroid hormone or too little, cortisol in excess (Cushing's) or missing (Addison's), ADH flooding the body (SIADH) or absent (diabetes insipidus), and insulin gone entirely until ketones turn the blood to acid in DKA. Its bloodline runs through the genes: dominant, recessive and X-linked patterns in every Punnett square.", "weak": "Trace each axis from hypothalamus to gland to feedback, and pair each disorder with its opposite (Cushing's/Addison's, SIADH/DI, hyper/hypothyroid). Separate DKA from HHS."}, "zone5": {"name": "The Clot King", "type": "Tyrant", "lore": "Crowned in fibrin, it builds its throne on a ruptured plaque in a coronary artery. It chooses whether the clot partly blocks (NSTEMI) or fully occludes (STEMI), then works on a failing ventricle: left-sided failure floods the lungs, right-sided failure swells the legs and liver. It keeps a court of anemias, arrhythmias with atrial fibrillation at their head, high blood pressure, leaking and narrowed valves, and congenital shunts.", "weak": "Link each coronary event to its ECG and troponin picture, left versus right heart failure to their symptoms, and each anemia to its cause (iron, B12, folate, hemolysis, marrow)."}, "zone6": {"name": "The Hypoxia Wraith", "type": "Wraith", "lore": "It steals oxygen two ways: in the lungs by bronchospasm, trapped air, fluid-filled alveoli, a clot in the pulmonary artery or a V/Q mismatch, and in the kidneys by starving the nephron until filtration falls. Acute kidney injury is its quick strike (prerenal, intrarenal, postrenal); chronic kidney disease is its slow siege. It hides in thick cystic fibrosis mucus and in stones lodged in the ureter.", "weak": "Classify AKI as prerenal, intrarenal or postrenal, asthma (reversible) versus COPD (not fully reversible), nephrotic versus nephritic syndrome, and shunt versus dead space in V/Q mismatch."}, "zone7": {"name": "The Peritonitis Phantom", "type": "Phantom", "lore": "The last guardian drifts through the whole gut: acid rising in GERD, ulcerating bowel in IBD, a scarred liver whose portal hypertension swells the belly and the varices, a gallbladder full of stones and a pancreas digesting itself. When anything perforates, it becomes peritonitis, a rigid, silent abdomen. It guards the final exam and knows every system you crossed to reach it.", "weak": "Follow the portal circulation to explain ascites and varices, tell the hepatitis viruses apart by route of spread, and recognize a rigid abdomen with rebound tenderness as peritonitis. Then review every zone."}};
+/* QUEST UPGRADE LAYER v1 (Sept 2026) for Dr. Garg's quest-format RPGs (ZONES / openOverlay / checkA engine).
+   Configured by window.QUPC; process data in window.QUP_SEQ. Hot-patches only, never edits the question banks.
+   Adds: printable study sheet (from the engine's own missedQuestions) on the recap + victory screens, printable
+   Boss Cards (from ZONES, bestiary lore only when its name matches the zone boss), Sequence Sprint, 1-4 answer keys,
+   aria-live battle feedback, reduced-motion support. */
+(function(){
+  var C = window.QUPC || {}, SEQ = window.QUP_SEQ || [];
+  function cfg(k, d){ return C[k] === undefined ? d : C[k]; }
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function lsGet(k, d){ try{ var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); }catch(e){ return d; } }
+  function lsSet(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  function zones(){ try{ return (typeof ZONES !== "undefined" && ZONES) || window.ZONES || []; }catch(e){ return window.ZONES || []; } }
+  function missed(){ try{ return (typeof missedQuestions !== "undefined" && missedQuestions) || []; }catch(e){ return []; } }
+  function zoneNow(){ try{ return (typeof curZone !== "undefined" && curZone) || null; }catch(e){ return null; } }
+  function bestiary(){ try{ return (typeof BESTIARY_ENTRIES !== "undefined" && BESTIARY_ENTRIES) || window.BESTIARY_ENTRIES || {}; }catch(e){ return {}; } }
+
+  /* ---------- bestiary repair: fresh entries keyed by ZONES ids (legacy entries often came from another game) ---------- */
+  var QB = window.QUP_BESTIARY || null;
+  if(QB){
+    try{
+      var be0 = bestiary();
+      Object.keys(QB).forEach(function(id){ be0[id] = QB[id]; });
+    }catch(e){}
+  }
+
+  var css = document.createElement("style");
+  css.textContent = ''
+    + '.qx-btn{font-family:"Press Start 2P",monospace;font-size:9px;padding:9px 11px;border-radius:8px;border:2px solid #5ec8ff;background:#101a33;color:#cfeeff;cursor:pointer;margin:4px;}'
+    + '.qx-btn:focus-visible,.ts-card:focus-visible{outline:3px solid #ffcd44;outline-offset:2px;}'
+    + '#qxTitleRow{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px auto 4px;position:relative;z-index:5;}'
+    + '.ts-wrap{position:fixed;inset:0;z-index:99990;background:radial-gradient(ellipse at top,#1d2a4d,#070a14 80%);overflow:auto;padding:18px 14px 40px;display:none;}'
+    + '.ts-wrap.show{display:block;}'
+    + '.ts-head{text-align:center;font-family:"Cinzel Decorative",Georgia,serif;color:#ffcd44;font-size:clamp(24px,5vw,42px);margin:4px 0;}'
+    + '.ts-sub{text-align:center;font-family:"VT323",monospace;color:#c9d2f5;font-size:19px;max-width:640px;margin:0 auto 10px;}'
+    + '.ts-hud{display:flex;justify-content:center;gap:18px;font-family:"Press Start 2P",monospace;font-size:10px;color:#9fe0ff;margin:8px 0 12px;}'
+    + '.ts-line{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:62px;max-width:900px;margin:0 auto 14px;padding:10px;border-top:3px dashed #3b4a7a;border-bottom:3px dashed #3b4a7a;}'
+    + '.ts-placed{background:#12301f;border:2px solid #7ed85a;border-radius:10px;padding:6px 9px;max-width:220px;font-family:"VT323",monospace;color:#dff7d4;font-size:16px;line-height:1.1;}'
+    + '.ts-placed b{display:block;font-family:"Press Start 2P",monospace;font-size:9px;color:#7ed85a;margin-bottom:3px;}'
+    + '.ts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;max-width:900px;margin:0 auto;}'
+    + '.ts-card{background:#141c38;border:2px solid #5ec8ff;border-radius:12px;padding:12px;color:#eef3ff;font-family:"VT323",monospace;font-size:19px;line-height:1.15;cursor:pointer;text-align:left;}'
+    + '.ts-card:hover{background:#1b2750;}.ts-card.bad{animation:tsShake .4s;border-color:#ff5d73;}'
+    + '.ts-msg{text-align:center;font-family:"VT323",monospace;font-size:20px;color:#ffcd44;min-height:26px;margin:4px auto 8px;max-width:700px;}'
+    + '.ts-close{position:fixed;top:12px;right:12px;z-index:99991;}'
+    + '@keyframes tsShake{0%,100%{transform:none;}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}'
+    + '@media (max-width:480px){.ts-grid{grid-template-columns:1fr;}.ts-placed{max-width:46%;}.qx-btn{font-size:8px;}}'
+    + '@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}';
+  document.head.appendChild(css);
+
+  /* ---------- printable pages (in-page frame; pop-ups are blocked in LMS embeds) ---------- */
+  function showDoc(docHtml){
+    var old = $("qxDoc"); if(old) old.parentNode.removeChild(old);
+    var o = document.createElement("div"); o.id = "qxDoc";
+    o.style.cssText = "position:fixed;inset:0;z-index:99995;background:rgba(0,0,0,.85);display:flex;flex-direction:column;padding:10px;";
+    o.innerHTML = '<div style="display:flex;gap:8px;justify-content:flex-end;margin-bottom:8px;"><button class="qx-btn" id="qxDocPrint">🖨️ PRINT</button><button class="qx-btn" id="qxDocClose">✕ CLOSE</button></div>';
+    var f = document.createElement("iframe"); f.title = "Printable page";
+    f.style.cssText = "flex:1;width:100%;border:0;border-radius:10px;background:#fff;";
+    f.srcdoc = docHtml; o.appendChild(f); document.body.appendChild(o);
+    $("qxDocClose").onclick = function(){ o.parentNode.removeChild(o); };
+    $("qxDocPrint").onclick = function(){ try{ f.contentWindow.focus(); f.contentWindow.print(); }catch(e){} };
+  }
+  var PRINT_CSS = 'body{font-family:Georgia,serif;max-width:800px;margin:24px auto;padding:0 18px;color:#1b1b1b;}h1{font-size:21px;margin:0;}h2{font-size:14px;font-weight:normal;color:#555;margin:4px 0 16px;}button{margin:0 0 12px;padding:8px 14px;}@media print{button{display:none;}}';
+  function printSheet(){
+    var ms = missed(), z = zoneNow();
+    showDoc('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Study sheet</title><style>' + PRINT_CSS
+      + '.it{display:flex;gap:12px;border-top:1px solid #ccc;padding:12px 0;break-inside:avoid;}.n{font-weight:bold;width:22px;}.q{font-weight:bold;margin:0 0 6px;}.a,.fb,.ch{margin:4px 0;}.ch{color:#8a1c1c;}'
+      + '</style></head><body><h1>' + esc(cfg("course", "Quest")) + ' · Study sheet</h1><h2>' + esc(z ? (z.name + " · " + z.boss) : "Battle") + ' · ' + new Date().toLocaleDateString()
+      + ' · ' + ms.length + ' to review</h2><button onclick="window.print()">Print</button>'
+      + ms.map(function(m, i){
+          var a = m.a || [], right = a[m.correct], chosen = (m.chosen != null && m.chosen >= 0) ? a[m.chosen] : null;
+          return '<div class="it"><div class="n">' + (i + 1) + '</div><div><p class="q">' + esc(m.q) + '</p>'
+            + (chosen != null && chosen !== right ? '<p class="ch">You chose: ' + esc(chosen) + '</p>' : '')
+            + '<p class="a"><b>Answer:</b> ' + esc(right) + '</p>' + (m.tip ? '<p class="fb">' + esc(m.tip) + '</p>' : '') + '</div></div>';
+        }).join("") + '</body></html>');
+  }
+  function printCards(){
+    var zs = zones(), be = bestiary();
+    showDoc('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Boss Cards</title><style>' + PRINT_CSS.replace("max-width:800px", "max-width:1000px")
+      + '.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}.card{border:3px solid var(--c);border-radius:14px;padding:12px;break-inside:avoid;}'
+      + '.top{display:flex;gap:12px;align-items:center;}.pic{width:70px;height:70px;flex:0 0 70px;border-radius:12px;background:var(--c);display:flex;align-items:center;justify-content:center;font-size:40px;}'
+      + '.zn{font:bold 10px monospace;letter-spacing:2px;color:#666;text-transform:uppercase;}.nm{font-size:19px;font-weight:bold;}.lore{font-size:12.5px;line-height:1.35;}'
+      + '.h{font:bold 11px monospace;letter-spacing:1px;text-transform:uppercase;margin-top:6px;color:#333;}ul{margin:4px 0 4px 16px;padding:0;font-size:12.5px;}'
+      + '@media print{.card,.pic{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}@media (max-width:700px){.grid{grid-template-columns:1fr;}}</style></head><body>'
+      + '<h1>' + esc(cfg("cardsTitle", "The Zone Bosses")) + '</h1><h2>Study cards from ' + esc(cfg("course", "the Quest")) + '. Each card lists what that boss tests.</h2>'
+      + '<button onclick="window.print()">Print</button><div class="grid">'
+      + zs.map(function(z, i){
+          var b = (QB && QB[z.id]) || be[z.id], lore =(b && b.name && z.boss && b.name.toLowerCase() === String(z.boss).toLowerCase()) ? (b.lore || "") : "";
+          var weak = (b && lore && b.weak) ? b.weak : "";
+          return '<div class="card" style="--c:' + esc(z.color || "#5ec8ff") + '"><div class="top"><div class="pic">' + esc(z.emoji || "⚔") + '</div><div>'
+            + '<div class="zn">Zone ' + (i + 1) + ' · ' + esc(z.name) + '</div><div class="nm">' + esc(z.boss) + '</div></div></div>'
+            + (lore ? '<p class="lore">' + esc(lore) + '</p>' : '')
+            + '<div class="h">What this boss tests</div><ul>' + (z.topics || []).map(function(t){ return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>'
+            + (weak ? '<div class="h">Weakness</div><p class="lore">' + esc(weak) + '</p>' : '') + '</div>';
+        }).join("") + '</div></body></html>');
+  }
+  window.qupPrintSheet = printSheet; window.qupPrintCards = printCards;
+
+  /* study-sheet buttons on the recap modal and the victory/defeat screens */
+  function addSheetButtons(){
+    var ms = missed();
+    [["recap-inner", "qxSheetRecap"], ["btn-victory-continue", "qxSheetVic"], ["btn-retry-battle", "qxSheetRetry"]].forEach(function(p){
+      var host = $(p[0]); if(!host) return;
+      var b = $(p[1]);
+      if(!b){
+        b = document.createElement("button"); b.id = p[1]; b.className = "qx-btn"; b.onclick = printSheet;
+        if(p[0] === "recap-inner") host.insertBefore(b, host.firstChild); else host.parentNode.insertBefore(b, host);
+      }
+      b.textContent = "🖨️ PRINT STUDY SHEET (" + ms.length + ")";
+      b.style.display = ms.length ? "" : "none";
+    });
+  }
+  setInterval(addSheetButtons, 800);
+
+  /* ---------- accessibility: 1-4 keys answer the current battle question; spoken feedback ---------- */
+  document.addEventListener("keydown", function(e){
+    var bov = $("bov"); if(!bov || !bov.classList.contains("show")) return;
+    if(!/^[1-4]$/.test(e.key) || e.ctrlKey || e.metaKey || e.altKey) return;
+    var ans = $("bov-ans"); if(!ans) return;
+    var btns = ans.querySelectorAll("button"), b = btns[+e.key - 1];
+    if(b && !b.disabled){ b.click(); e.preventDefault(); }
+  }, true);
+  var fb = $("bov-fb"); if(fb){ fb.setAttribute("aria-live", "polite"); fb.setAttribute("role", "status"); }
+  var qt = $("bov-qtext"); if(qt) qt.setAttribute("aria-live", "polite");
+
+  /* ---------- Sequence Sprint ---------- */
+  var SS_BEST = cfg("key", "quest") + "_sprint_best", ss = null;
+  function seqCite(s){ return s.cite || (s.deck ? (s.deck + (s.slide ? ", slide " + s.slide : "")) : "your notes"); }
+  function ssBuild(){
+    var w = document.createElement("div"); w.className = "ts-wrap"; w.id = "qxSsWrap"; w.setAttribute("role", "dialog"); w.setAttribute("aria-label", cfg("sprintName", "Sequence Sprint"));
+    w.innerHTML = '<button class="qx-btn ts-close" id="qxSsClose">✕ CLOSE</button><div class="ts-head">' + esc(cfg("sprintIcon", "🧬") + " " + cfg("sprintName", "Sequence Sprint")) + '</div>'
+      + '<div class="ts-sub" id="qxSsTitle"></div><div class="ts-hud"><span id="qxSsLives"></span><span id="qxSsTime">0.0s</span><span id="qxSsBest"></span></div>'
+      + '<div class="ts-msg" id="qxSsMsg" aria-live="polite"></div><div class="ts-line" id="qxSsLine"></div><div class="ts-grid" id="qxSsGrid"></div>'
+      + '<div style="text-align:center;margin-top:12px"><button class="qx-btn" id="qxSsAgain">↻ NEXT PROCESS</button></div>';
+    document.body.appendChild(w);
+    $("qxSsClose").onclick = ssClose; $("qxSsAgain").onclick = ssNew;
+    w.addEventListener("keydown", function(e){ if(e.key === "Escape") ssClose(); e.stopPropagation(); });
+    return w;
+  }
+  function ssNew(){
+    if(!SEQ.length) return;
+    var s = SEQ[Math.floor(Math.random() * SEQ.length)];
+    if(ss && SEQ.length > 1) while(s === ss.seq) s = SEQ[Math.floor(Math.random() * SEQ.length)];
+    var cards = s.steps.map(function(t, i){ return { t:t, i:i }; });
+    for(var i = cards.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var x = cards[i]; cards[i] = cards[j]; cards[j] = x; }
+    ss = { seq:s, next:0, lives:3, t0:Date.now(), done:false };
+    $("qxSsTitle").innerHTML = '<b>' + esc(s.title) + '</b><br>' + esc(s.prompt || "Earliest step first") + '. Three wrong taps and the process fails.';
+    $("qxSsLine").innerHTML = ""; $("qxSsMsg").textContent = "Which step comes first?";
+    var g = $("qxSsGrid"); g.innerHTML = "";
+    cards.forEach(function(c){ var b = document.createElement("button"); b.className = "ts-card"; b.textContent = c.t; b.onclick = function(){ ssTap(c, b); }; g.appendChild(b); });
+    ssHud(); clearInterval(ssHud._i); ssHud._i = setInterval(ssHud, 100);
+    setTimeout(function(){ var f = g.querySelector(".ts-card"); if(f) f.focus(); }, 50);
+  }
+  function ssHud(){
+    if(!ss) return;
+    $("qxSsLives").textContent = "❤️".repeat(ss.lives) + "🖤".repeat(3 - ss.lives);
+    if(!ss.done) $("qxSsTime").textContent = ((Date.now() - ss.t0) / 1000).toFixed(1) + "s";
+    var best = lsGet(SS_BEST, {})[ss.seq.id]; $("qxSsBest").textContent = best ? ("BEST " + best.toFixed(1) + "s") : "BEST —";
+  }
+  function ssTap(c, btn){
+    if(!ss || ss.done) return;
+    var s = ss.seq;
+    if(c.i === ss.next){
+      ss.next++; btn.parentNode.removeChild(btn);
+      var p = document.createElement("div"); p.className = "ts-placed"; p.innerHTML = '<b>STEP ' + ss.next + '</b>' + esc(c.t); $("qxSsLine").appendChild(p);
+      if(ss.next === s.steps.length){
+        ss.done = true; clearInterval(ssHud._i);
+        var secs = (Date.now() - ss.t0) / 1000, all = lsGet(SS_BEST, {}), rec = !all[s.id] || secs < all[s.id];
+        if(rec){ all[s.id] = secs; lsSet(SS_BEST, all); }
+        $("qxSsMsg").textContent = "Sequence complete in " + secs.toFixed(1) + "s" + (rec ? " · new best" : "") + ". Review: " + seqCite(s) + ".";
+      } else $("qxSsMsg").textContent = "Right. What comes next?";
+    } else {
+      ss.lives--; btn.classList.remove("bad"); void btn.offsetWidth; btn.classList.add("bad");
+      if(ss.lives <= 0){ ss.done = true; clearInterval(ssHud._i); $("qxSsMsg").textContent = "Process failed. Step " + (ss.next + 1) + " was: " + s.steps[ss.next] + ". Review " + seqCite(s) + "."; }
+      else $("qxSsMsg").textContent = "Not yet. That step comes later.";
+    }
+    ssHud();
+  }
+  function ssOpen(){ var w = $("qxSsWrap") || ssBuild(); w.classList.add("show"); ssNew(); }
+  function ssClose(){ var w = $("qxSsWrap"); if(w) w.classList.remove("show"); clearInterval(ssHud._i); }
+  window.qupSequenceSprint = ssOpen;
+
+  /* ---------- title-screen buttons ---------- */
+  function addTitleButtons(){
+    if($("qxTitleRow")) return;
+    var host = $("ts-start-wrap") || $("ts-inner") || $("title-screen"); if(!host) return;
+    var row = document.createElement("div"); row.id = "qxTitleRow";
+    row.innerHTML = (SEQ.length ? '<button class="qx-btn" id="qxSeq">' + esc(cfg("sprintIcon", "🧬") + " " + cfg("sprintName", "Sequence Sprint").toUpperCase()) + '</button>' : '')
+      + '<button class="qx-btn" id="qxCards">🃏 PRINT BOSS CARDS</button>';
+    host.appendChild(row);
+    row.addEventListener("click", function(e){ e.stopPropagation(); });
+    row.addEventListener("keydown", function(e){ e.stopPropagation(); });
+    if($("qxSeq")) $("qxSeq").onclick = function(e){ e.stopPropagation(); ssOpen(); };
+    $("qxCards").onclick = function(e){ e.stopPropagation(); printCards(); };
+  }
+  addTitleButtons(); setInterval(addTitleButtons, 1500);
+})();
+
+</script>
+<!--QUEST-UPGRADE:END-->
 </body>
 </html>
