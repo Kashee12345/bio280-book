@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0c3a44">
+<meta name="theme-color" content="#8a2f36">
 <title>Pathophysiology — A Student-Friendly Guide · Dr. Akash Garg</title>
 <meta name="description" content="A student-friendly, exact pathophysiology guide by Dr. Akash Garg — every concept explained plainly, with an interactive you can play with in every section.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
 <style>
-  :root{ --ink:#22312f; --soft:#4a5a58; --muted:#7c8a88; --faint:#9aa8a6; --line:#e6e2d6;
-    --paper:#faf8f2; --card:#fffdf7; --accent:#0c7283; --accent-dk:#0c3a44; --gold:#b8862f;
+  :root{ --ink:#241f1b; --soft:#4f453d; --muted:#66594f; --faint:#73675b; --line:#e6dccb;
+    --paper:#fbf8f2; --card:#fffdf8; --accent:#8a2f36; --accent-dk:#5e1f24; --gold:#7f5f12; --teal:#0c7283;
     --serif:"Source Serif 4",Georgia,serif; --disp:"Fraunces",Georgia,serif; --ui:"Inter",system-ui,sans-serif;
-    --shadow:0 1px 3px rgba(20,40,46,.06); }
+    --shadow:0 1px 0 #e6dccb,0 12px 26px -18px rgba(60,30,20,.38); }
   *{box-sizing:border-box;} html{scroll-behavior:smooth;}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.7;-webkit-font-smoothing:antialiased;}
   a{color:var(--accent);text-decoration:none;}
@@ -33,7 +33,7 @@
   .toc h2{font-family:var(--ui);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);font-weight:700;text-align:center;margin:0 0 20px;}
   .ch{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:10px 0;box-shadow:var(--shadow);transition:border-color .15s,transform .15s;}
   a.ch:hover{border-color:var(--accent);transform:translateY(-2px);}
-  .ch .no{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:#eef5f6;color:var(--accent);font-family:var(--disp);font-weight:700;font-size:18px;display:grid;place-items:center;}
+  .ch .no{flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:#f7e9e9;color:var(--accent);font-family:var(--disp);font-weight:700;font-size:18px;display:grid;place-items:center;}
   .ch.ready .no{background:var(--accent);color:#fff;}
   .ch .tx{flex:1 1 auto;min-width:0;}
   .ch .tx h3{margin:0;font-family:var(--disp);font-weight:600;font-size:19px;color:var(--accent-dk);line-height:1.2;}
@@ -41,22 +41,42 @@
   .ch .st{flex:0 0 auto;font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:5px 11px;border-radius:20px;}
   .ch.ready .st{background:#e6f2ec;color:#2f7d50;} .ch.soon .st{background:#f2efe4;color:var(--faint);}
   .ch.soon{opacity:.72;}
-  .ch.appendix{background:linear-gradient(135deg,#0c3a44,#0c7283);border-color:transparent;margin-top:18px;}
+  .ch.appendix{background:linear-gradient(135deg,#2a1416,#5e1f24);border-color:transparent;margin-top:18px;}
   a.ch.appendix:hover{filter:brightness(1.07);border-color:transparent;}
   .ch.appendix .no{background:var(--gold);color:#3a2a06;}
-  .ch.appendix .tx h3{color:#fff;} .ch.appendix .tx p{color:#cfe3e5;}
+  .ch.appendix .tx h3{color:#fff;} .ch.appendix .tx p{color:#e7d6d0;}
   .ch.appendix .st{background:rgba(255,255,255,.16);color:#fff;}
 
   .note{max-width:820px;margin:0 auto;padding:0 20px;}
   .note .box{background:#fbf3e2;border:1px solid #ecd9ac;border-radius:14px;padding:16px 20px;font-size:15px;line-height:1.6;color:#6a5320;}
   .note .box b{color:#5a4212;}
   footer{font-family:var(--ui);text-align:center;color:var(--faint);font-size:12.5px;border-top:1px solid var(--line);padding:26px 20px 50px;} footer b{color:var(--soft);}
+
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(251,248,242,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .topbar .row{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;font-family:var(--ui);}
+  .topbar .hb-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--accent-dk);min-width:0;}
+  .hb-logo .crest{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:22px;line-height:1;background:var(--card);border:1px solid var(--line);box-shadow:0 2px 0 var(--line);flex:none;}
+  .hb-logo b{display:block;font-family:var(--disp);font-size:17px;line-height:1.1;}
+  .hb-logo small{display:block;font-size:12px;color:var(--muted);font-weight:600;}
+  .hb-back{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;color:#2b1f05 !important;background:#c99a2e;border-radius:12px;padding:9px 13px;box-shadow:0 3px 0 #9a7418;text-decoration:none;white-space:nowrap;}
+  .topbar a.hb-back:hover{filter:brightness(1.05);}
+  .cover .kicker{color:#7f5f12;}
+  .cover .sub{color:#7f5f12;}
+  .rule{background:linear-gradient(90deg,#8a2f36,#c99a2e);}
+  .note .box{background:#f7eeda;border-color:#ecdcb8;}
+  a:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:8px;}
+  footer.hubfoot{background:#2a1416;color:#d9c7c0;border-top:0;padding:34px 20px 70px;}
+  footer.hubfoot .fw{max-width:820px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;text-align:left;}
+  footer.hubfoot b{color:#fff;}
+  footer.hubfoot a{color:#d9c7c0;font-weight:600;text-decoration:none;}
+  footer.hubfoot a:hover{color:#fff;text-decoration:underline;}
+  footer.hubfoot .fl{display:flex;flex-wrap:wrap;gap:8px 18px;}
 </style>
 </head>
 <body>
 
 
-  <div class="topbar"><div class="row"></div></div>
+  <div class="topbar"><div class="row"><a class="hb-logo" href="https://kashee12345.github.io/bio280/"><span class="crest" aria-hidden="true">&#9877;&#65039;</span><span><b>BIO 280</b><small>Pathophysiology &middot; The Book</small></span></a><a class="hb-back" href="https://kashee12345.github.io/bio280/">Course hub</a></div></div>
 
   <header class="cover">
     <div class="kicker">A student-friendly guide</div>
@@ -69,7 +89,7 @@
 
   <div class="note"><div class="box"><b>📖 A note:</b> the book follows the course &mdash; <b>one chapter per week</b> &mdash; and each chapter ends with that unit&rsquo;s <b>flashcard deck</b> and its <b>interactive labs</b>. Chapters marked <b>Ready</b> are live now; the rest are on the way (Week 7 is midterm review). Start with the ready one below to see how it works.</div></div>
 
-    <div style="text-align:center;margin:8px auto 0;"><a href="full-book.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:14px;color:#fff;background:#0c7283;padding:11px 20px;border-radius:24px;text-decoration:none;box-shadow:0 6px 18px rgba(12,58,68,.25);">📘 Save the whole book as PDF</a></div>
+    <div style="text-align:center;margin:8px auto 0;"><a href="full-book.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:14px;color:#2b1f05;background:#c99a2e;padding:12px 20px;border-radius:14px;text-decoration:none;box-shadow:0 4px 0 #9a7418;">📘 Save the whole book as PDF</a></div>
 
 <main class="toc">
     <h2>Table of Contents · by course week</h2>
@@ -98,10 +118,10 @@
     </a>
   </main>
 
-  <footer>A student-friendly pathophysiology guide · by <b>Dr. Akash Garg</b> &middot; BIO 280 &middot; Joyce University</footer>
+  <footer class="hubfoot"><div class="fw"><span>A student-friendly pathophysiology guide · by <b>Dr. Akash Garg</b> &middot; BIO 280 &middot; Joyce University</span><span class="fl"><a href="https://kashee12345.github.io/bio280/">Course hub</a><a href="full-book.html">Whole book as PDF</a><a href="appendix.html">The Arcade &amp; Lab</a></span></div></footer>
 <style id="pdfprint">
-.pdf-btn{position:fixed;right:16px;bottom:16px;z-index:400;font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:13.5px;color:#fff;background:#0c7283;border:none;border-radius:24px;padding:11px 17px;box-shadow:0 6px 20px rgba(12,58,68,.30);cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
-.pdf-btn:hover{background:#0c3a44;}
+.pdf-btn{position:fixed;right:16px;bottom:16px;z-index:400;font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:13.5px;color:#fff;background:#8a2f36;border:none;border-radius:24px;padding:11px 17px;box-shadow:0 6px 20px rgba(12,58,68,.30);cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
+.pdf-btn:hover{background:#5e1f24;}
 @media print{
  @page{margin:14mm;}
  html,body{background:#fff !important;}
@@ -112,7 +132,7 @@
  .embed iframe,.embed .frame{display:none !important;}
  .embed{margin:14px 0 !important;}
  .embed .cap{color:#555 !important;font-style:italic;}
- .embed .cap .tag{background:#0c7283 !important;color:#fff !important;}
+ .embed .cap .tag{background:#8a2f36 !important;color:#fff !important;}
  .embed .cap a{display:none !important;}
  .bref,.bref .fr{break-inside:avoid;page-break-inside:avoid;box-shadow:none !important;}
  .bref img{max-height:150mm;width:auto !important;margin:0 auto;}
