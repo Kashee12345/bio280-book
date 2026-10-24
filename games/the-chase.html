@@ -353,7 +353,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
 .reveal.show{opacity:1}
 .reveal .rcap{font-family:var(--px);font-weight:700;font-size:14px;letter-spacing:5px;color:#ff3b53;text-shadow:0 0 16px rgba(255,59,83,.85);min-height:20px}
 .reveal .rstage{position:relative;width:min(64vw,260px);aspect-ratio:96/88;margin:14px auto 4px}
-.reveal .rstage canvas{position:absolute;inset:0;width:100%;height:100%}
+.reveal .rstage canvas{position:absolute;left:-25%;top:-25%;width:150%;height:150%;pointer-events:none;z-index:2}
 .reveal .rstage img{position:absolute;inset:0;margin:auto;height:100%;width:auto;max-width:100%;object-fit:contain;opacity:0;transform:scale(.6);transition:all 1.3s cubic-bezier(.2,.9,.3,1.3)}
 .reveal.unmasked .rstage img{opacity:1;transform:none}
 .reveal .rname{font-family:var(--px);font-weight:700;font-size:clamp(32px,9vw,54px);letter-spacing:2px;background:linear-gradient(180deg,#dff5ff,#5ec8ff,#3a8cb8);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transition:opacity 1s .5s;margin-top:8px}
@@ -417,6 +417,58 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
 .aset label{display:grid;grid-template-columns:110px 1fr 40px;align-items:center;gap:10px;margin:14px 0;font-weight:700}
 .aset input[type=range]{width:100%;accent-color:var(--accent);height:32px}
 .aset b{font-family:var(--num);font-size:11px;text-align:right}
+
+/* ------------------------------------------------------------ Today's boss, chaser card, timeline cards */
+.daily .dt .dboss{display:block;margin-top:3px;font-family:var(--px);font-size:13px;letter-spacing:.5px;color:#ffe39a}
+.gcard.chaser{grid-column:1/-1;box-shadow:0 0 0 2px #081226,0 5px 0 #040914,inset 0 0 0 2px var(--bc),0 0 18px color-mix(in srgb,var(--bc) 30%,transparent)}
+.gcard.chaser canvas{max-width:170px}
+.ts-card small{display:block;margin-top:5px;font-family:var(--px);font-size:11px;letter-spacing:1px;color:var(--accent)}
+.ts-line.tl .ts-placed b{font-size:10px;color:var(--gold)}
+/* ------------------------------------------------------------ narrator picker (Audio settings) */
+.narr{margin:18px 0 6px;padding:12px;border-radius:12px;background:#0b1630;box-shadow:inset 0 0 0 2px var(--line)}
+.narr select{width:100%;min-height:44px;margin:8px 0 2px;padding:8px 10px;border-radius:10px;border:0;background:var(--panel2);color:var(--ink);font:inherit;font-size:15px;box-shadow:inset 0 0 0 2px var(--line)}
+.narr label{margin:10px 0}
+.narr .btn{width:100%}
+.narr .ntip{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+/* ------------------------------------------------------------ Bonus Lab */
+.labhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-right:44px}
+.labhead h2{margin:0;flex:1;min-width:0;font-size:24px;line-height:1.1;color:var(--ac,var(--good))}
+.labround .labhead h2{font-size:21px}
+.labhead .lic{font-size:30px;line-height:1}
+.lbadge{font-family:var(--px);font-weight:700;font-size:11px;letter-spacing:2px;padding:3px 8px;border-radius:6px;background:var(--good);color:#0b2a06}
+.lmc{font-family:var(--num);font-size:12px;color:var(--gold)}
+.labsub{color:var(--muted);font-size:14px}
+.labprog{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0 6px}
+.lpip{position:relative;min-width:46px;height:44px;padding:0 8px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#0b1630;box-shadow:inset 0 0 0 2px var(--line);filter:grayscale(.75);opacity:.6}
+.lpip.on{filter:none;opacity:1;background:color-mix(in srgb,var(--ac) 22%,#0b1630);box-shadow:inset 0 0 0 2px var(--ac),0 0 12px color-mix(in srgb,var(--ac) 45%,transparent)}
+.lpip i{position:absolute;right:-4px;bottom:-4px;width:18px;height:18px;border-radius:50%;background:#0b2a06;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px var(--good)}
+.labcount{text-align:center;font-family:var(--px);font-weight:700;font-size:15px;letter-spacing:1px;color:var(--gold);margin:6px 0 14px}
+.labgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lcardr{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;padding:14px 10px;box-shadow:0 0 0 2px #081226,0 5px 0 #040914,inset 0 4px 0 var(--ac)}
+.lcardr .lri{font-size:30px;line-height:1.1}
+.lcardr b{font-family:var(--px);font-size:16px;line-height:1.15}
+.lcardr .lrs{font-size:12.5px;color:var(--muted)}
+.lcardr.done{box-shadow:0 0 0 2px var(--good),0 5px 0 #040914,inset 0 4px 0 var(--ac)}
+.lcardr.done .lrs{color:var(--good);font-weight:700}
+.labround{--ac:var(--good)}
+.labmsg{min-height:22px;text-align:center;font-size:14px;color:var(--gold);margin:2px 0 8px}
+.labcols{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.labcols .cap{margin:0 0 6px;font-size:11px}
+.ltarget,.ltile{display:block;width:100%;text-align:left;margin-bottom:8px;border-radius:10px;padding:10px 11px;font-size:14px;line-height:1.3;min-height:48px;transition:background .15s,box-shadow .15s,opacity .2s}
+.ltarget{background:#0f1f3d;box-shadow:inset 0 0 0 2px var(--line)}
+.ltarget b{display:block;color:var(--ac);font-size:14.5px}
+.ltarget span{display:block;font-size:12.5px;color:#7e93b8;margin-top:2px}
+.ltarget.ok{background:#12301f;box-shadow:inset 0 0 0 2px var(--good);cursor:default}
+.ltarget.ok b{color:#9ff07e}.ltarget.ok span{color:#d9f5cf}
+.ltile{background:#1b2c54;box-shadow:inset 0 0 0 2px #38507e,0 3px 0 #050a16;color:#e6edff}
+.ltile.sel{background:#2a3e70;box-shadow:inset 0 0 0 3px var(--ac),0 0 14px color-mix(in srgb,var(--ac) 50%,transparent)}
+.ltile.used{opacity:.25;pointer-events:none;text-decoration:line-through}
+.ltile.bad{box-shadow:inset 0 0 0 2px var(--bad)}
+.shake,.ltile.bad{animation:shakeX .4s}
+.labround #labBack{margin-top:10px}
+.labconf{position:fixed;top:-12px;width:9px;height:9px;border-radius:2px;z-index:96;pointer-events:none}
+@media (max-width:420px){.ltarget,.ltile{font-size:13px;padding:9px}.ltarget b{font-size:13.5px}}
+@media (min-width:700px){.labgrid{grid-template-columns:repeat(4,1fr)}.labcols{gap:16px}}
 </style>
 </head>
 <body>
@@ -448,6 +500,8 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   C5.lerp = function (a, b, t) { return a + (b - a) * t; };
   C5.pct = function (c, n) { return n ? Math.round(c / n * 100) : 0; };
   C5.mulberry32 = function (seed) { return function () { var t = seed += 0x6D2B79F5; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
+  /* the earlier games' day number (local midnight), used to rotate Today's boss */
+  C5.dayIndex = function () { return Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000); };
   C5.dailySeed = function (d) { d = d || new Date(); return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate(); };
   C5.reducedMotion = function () { try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
   C5.el = function (tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -456,9 +510,13 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   var F = D.features || {};
   var anySata = D.exams.some(function (e) { return e.questions.some(function (q) { return q.c.length > 1; }); });
   var FDEF = { daily: { n: 20 }, adaptive: true, bestiary: true, cards: true, shop: true, instructor: true, sata: anySata,
-    slides: !!(D.slides && Object.keys(D.slides).length), sim: false, sprint: false, reveal: false, mixes: [] };
+    slides: !!(D.slides && Object.keys(D.slides).length), sim: false, sprint: false, reveal: false, mixes: [],
+    lab: !!(labData() && labData().rounds && labData().rounds.length) };
+  function labData() { return D.lab || D.bonusLab || null; }
+  C5.labData = labData;
   C5.F = function (name) { var v = F[name]; if (v === undefined) v = FDEF[name]; if (name === 'daily' && v === true) v = FDEF.daily; return v; };
-  if (C5.F('sprint') && !(D.sequences && D.sequences.length)) F.sprint = false;
+  if (C5.F('sprint') && !(D.sequences && D.sequences.length) && !(D.timeline && D.timeline.events && D.timeline.events.length)) F.sprint = false;
+  if (C5.F('lab') && !FDEF.lab) F.lab = false;
 
   /* ------------------------------------------------------------------ course text (data "text" block over these defaults) */
   var unit = CO.unit || 'Exam', units = CO.unitPlural || unit + 's';
@@ -468,6 +526,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     finalLabel: 'Final Exam', finalShort: 'Final', midtermShort: 'Midterm', overlordWord: 'overlord',
     bestiaryCap: 'Bestiary · boss gallery', bestiaryTitle: 'THE ROSTER', bestiaryTile: 'Every boss: lore, moveset, weakness',
     cardsTile: 'Print the bosses as study cards', chooseTitle: 'CHOOSE YOUR BOSS', bestiaryName: 'Bestiary', cardsName: 'Boss Cards', bossWord: 'boss', adaptiveTile: 'Targets the topics you have been missing most',
+    studySheetTitle: '{label} {name} Chase', masteredCap: '★ CHAPTER MASTERED ★',
     audioNote: 'Music fades down while the bosses and {host} speak. Press M at any time to mute.'
   };
   var KIND = {
@@ -533,13 +592,33 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     hist: function (a, b) { return (b || []).concat(a || []).slice(-60); },
     mastery: function (a, b) { var o = {}; for (var k in b) o[k] = b[k]; for (k in a) { if (!o[k] || (a[k].best || 0) > (o[k].best || 0)) o[k] = a[k]; } return o; }
   };
+  /* an optional 4th element makes an import row conditional, for keys several games shared on one origin:
+     {"ifAnyKey": [oldKey, [id, ...]]}  only when the JSON object at oldKey has one of these keys (e.g. this game's boss ids)
+     {"ifSet": oldKey}                  only when oldKey exists */
+  function condOk(c, lj) {
+    try {
+      if (c.ifSet && lj(c.ifSet, null) == null) return false;
+      if (c.ifAnyKey) { var o = lj(c.ifAnyKey[0], null); if (!o || typeof o !== 'object') return false; if (!c.ifAnyKey[1].some(function (k) { return o[k] != null; })) return false; }
+      return true;
+    } catch (e) { return false; }
+  }
   C5.importLegacy = function (force) {
     if (S.get('imported', false) && !force) return null;
     var st = CO.storage || {}, list = st.import || [];
     function lj(k, d) { var v = raw(k); if (v == null) return d; try { return JSON.parse(v); } catch (e) { return v; } }
     var got = [];
     list.forEach(function (it) {
-      var oldKey = it[0], newKey = it[1], mode = it[2] || 'keep';
+      var oldKey = it[0], newKey = it[1], mode = it[2] || 'keep', cond = it[3];
+      if (cond && !condOk(cond, lj)) return;
+      var wrap = /^wrap:(.+)$/.exec(mode);
+      if (wrap) {
+        // a bare value (e.g. one best time) becomes {id: value} inside an object store such as sprint_best
+        var rv = lj(oldKey, undefined), num = typeof rv === 'number' ? rv : parseFloat(rv);
+        if (rv == null || (typeof rv !== 'object' && isNaN(num))) return;
+        var obj = S.get(newKey, null); if (!obj || typeof obj !== 'object') obj = {};
+        if (obj[wrap[1]] == null) { obj[wrap[1]] = typeof rv === 'object' ? rv : num; S.set(newKey, obj); got.push(newKey); }
+        return;
+      }
       if (mode === 'int' || mode === 'str') {
         var r = raw(oldKey); if (r != null && S.get(newKey, null) == null) { S.set(newKey, mode === 'int' ? (parseInt(r, 10) || 0) : String(r)); got.push(newKey); }
         return;
@@ -688,7 +767,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       try { var b = c.createBuffer(1, 1, 22050), s = c.createBufferSource(); s.buffer = b; s.connect(c.destination); s.start(0); } catch (e) {}
       note('unlock');
     }
-    var go = function () { if (A.music.want && !A.cur && !A.music.seq && !A.hold) A.playTheme(A.music.want); };
+    var go = function () { if (A.music.want && !A.cur && !A.music.seq && !A.hold) A.playTheme(A.music.want); A.prefetch(['title', 'menu']); };
     if (c.state !== 'running' && c.resume) c.resume().then(go, function () {}); else go();
   }
   ['pointerdown', 'touchend', 'keydown', 'click'].forEach(function (ev) { document.addEventListener(ev, unlock, { passive: true, capture: true }); });
@@ -742,7 +821,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   /* ------------------------------------------------------------------ music tracks */
   /* music contexts: title menu exam:<key> adaptive mix:<id> sim daily sprint ending credits reveal; a context the
      course did not map falls back along these chains, so a small music.json still covers every screen */
-  var CHAIN = { menu: ['title'], credits: ['ending', 'title'], reveal: ['ending', 'title'], ending: ['title'], daily: ['sprint', 'adaptive', 'title'],
+  var CHAIN = { lab: ['sprint', 'daily', 'adaptive', 'title'], menu: ['title'], credits: ['ending', 'title'], reveal: ['ending', 'title'], ending: ['title'], daily: ['sprint', 'adaptive', 'title'],
     sprint: ['daily', 'adaptive', 'title'], sim: ['adaptive', 'title'], adaptive: ['mix', 'title'], mix: ['adaptive', 'title'] };
   function real(key) {
     if (!key) return null;
@@ -761,11 +840,33 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     return null;
   }
   A.hasTrack = function (key) { var r = real(key); return !!(r && MUS[r]); };
+  /* decoded tracks are kept in a small cache (decoded audio is large: about 1 MB per 3 s of stereo), most recently
+     used first; the playing track and anything being decoded are never dropped */
+  var KEEP = 6, lru = [];
+  function touch(rk) { var i = lru.indexOf(rk); if (i >= 0) lru.splice(i, 1); lru.unshift(rk); trim(); }
+  function trim() {
+    for (var i = lru.length - 1; i >= KEEP; i--) { var k = lru[i]; if ((A.cur && A.cur.rk === k) || (A._fading && A._fading[k]) || A._pending === k) continue; delete A.tbuf[k]; lru.splice(i, 1); note('evict', k); }
+  }
   function loadTrack(rk, cb) {
-    if (A.tbuf[rk]) { cb(A.tbuf[rk]); return; }
+    if (A.tbuf[rk]) { touch(rk); cb(A.tbuf[rk]); return; }
     (A._wait = A._wait || {})[rk] = (A._wait[rk] || []).concat(cb);
     if (A._wait[rk].length > 1) return;
-    decode(b64buf(MUS[rk]), function (b) { A.tbuf[rk] = b; var w = A._wait[rk]; A._wait[rk] = []; w.forEach(function (f) { f(b); }); });
+    A._decoding = (A._decoding || 0) + 1;
+    decode(b64buf(MUS[rk]), function (b) { A._decoding--; A.tbuf[rk] = b; touch(rk); note('decoded', rk); var w = A._wait[rk]; A._wait[rk] = []; w.forEach(function (f) { f(b); }); });
+  }
+  /* pre-decode the tracks the next screens will want (one at a time, in the background), so a crossfade starts the
+     moment the screen changes instead of waiting for a long track to decode */
+  var preQ = [], preBusy = false;
+  A.prefetch = function (ctxs) {
+    if (!A.ctx || A.muted) return;
+    (ctxs || []).forEach(function (c) { var rk = real(c); if (rk && MUS[rk] && !A.tbuf[rk] && preQ.indexOf(rk) < 0) preQ.push(rk); });
+    pump();
+  };
+  function pump() {
+    if (preBusy || !preQ.length) return;
+    var rk = preQ.shift(); if (A.tbuf[rk]) { pump(); return; }
+    preBusy = true;
+    setTimeout(function () { loadTrack(rk, function () { preBusy = false; note('prefetched', rk); pump(); }); }, 60);
   }
   A.playTheme = function (key) {
     if (!key) return;
@@ -792,13 +893,14 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       s.connect(g); g.connect(A.musicBus); s.start(c.currentTime, s.loopStart || 0);
       A.live = (A.live || 0) + 1; s.onended = function () { A.live--; };
       fadeOut(A.cur, XF);
-      A.cur = { key: A.music.want, rk: rk, src: s, g: g, t0: c.currentTime };
+      A.cur = { key: A.music.want, rk: rk, src: s, g: g, t0: c.currentTime }; A._playAt = performance.now();
       A.music.key = A.music.want;
       note('play', rk);
     });
   };
   function fadeOut(tr, sec) {
     if (!tr || !A.ctx) return; var t = A.ctx.currentTime;
+    (A._fading = A._fading || {})[tr.rk] = 1; setTimeout(function () { delete A._fading[tr.rk]; }, sec * 1000 + 200);
     try { tr.g.gain.cancelScheduledValues(t); tr.g.gain.setValueAtTime(tr.g.gain.value, t); tr.g.gain.linearRampToValueAtTime(0.0001, t + sec); tr.src.stop(t + sec + 0.05); } catch (e) {}
     note('fade', tr.rk);
   }
@@ -826,7 +928,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     var c = ctx(); A.lastStinger = kind; note('stinger', kind);
     fadeOut(A.cur, 0.3); A.cur = null; A.music.key = null; seqStop(); A.resetIntensity();
     var b = A.buf[kind === 'win' ? 'win' : 'lose'], len = b ? b.duration + 0.4 : 1.8;
-    A.hold = true; clearTimeout(A._holdT);
+    A.hold = true; clearTimeout(A._holdT); A.music.want = null;   // the end screen names the next track; never restart the round's track
     if (kind === 'win') A.sfx.win(); else A.sfx.lose();
     A._holdT = setTimeout(function () { A.hold = false; if (A.music.want) A.playTheme(A.music.want); }, len * 1000 + 300);
   };
@@ -851,7 +953,17 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     return { ctx: A.ctx ? A.ctx.state : 'none', want: A.music.want, track: A.cur ? A.cur.rk : (A.music.seq || null), key: A.music.key,
       rate: A.cur ? +A.cur.src.playbackRate.value.toFixed(3) : 1, duck: A.duckG ? +A.duckG.gain.value.toFixed(2) : 1, ducked: !!A.ducked,
       hold: !!A.hold, lastStinger: A.lastStinger || null, muted: A.muted, vol: A.vol, loopStart: A.cur ? +A.cur.src.loopStart.toFixed(4) : 0,
-      loopEnd: A.cur ? +A.cur.src.loopEnd.toFixed(3) : 0, live: A.live || 0, bufDur: A.cur ? +A.cur.src.buffer.duration.toFixed(3) : 0, srcDur: A.cur && MMETA[A.cur.rk] ? MMETA[A.cur.rk].dur : 0, swells: A.log.filter(function (l) { return l.ev === 'swell'; }).length, decoded: Object.keys(A.tbuf), sfx: Object.keys(A.buf).length };
+      loopEnd: A.cur ? +A.cur.src.loopEnd.toFixed(3) : 0, live: A.live || 0, bufDur: A.cur ? +A.cur.src.buffer.duration.toFixed(3) : 0, srcDur: A.cur && MMETA[A.cur.rk] ? MMETA[A.cur.rk].dur : 0, swells: A.log.filter(function (l) { return l.ev === 'swell'; }).length, decoded: Object.keys(A.tbuf), sfx: Object.keys(A.buf).length,
+      pending: A._pending || null, decoding: A._decoding || 0, settled: A.settled() };
+  };
+  /* true once the music has caught up with what the screen wants: the wanted track is playing and its crossfade has
+     finished (or nothing can play: muted, held by a stinger, no audio). Tests wait on this instead of a fixed delay. */
+  A.settled = function () {
+    if (!A.ctx || A.ctx.state !== 'running' || A.muted) return true;
+    if (A.hold) return false;
+    var w = A.music.want; if (!w) return !A.cur;
+    if (!A.hasTrack(w)) return !A._pending;
+    return !A._pending && !!A.cur && A.cur.rk === real(w) && performance.now() - (A._playAt || 0) > XF * 1000 + 80 && (A.live || 0) <= 1;
   };
 
   /* ------------------------------------------------------------------ fallback: chiptune themes on a look-ahead sequencer */
@@ -887,6 +999,12 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     V.host = V.prime;
   }
   if ('speechSynthesis' in window) { pickVoices(); try { speechSynthesis.addEventListener('voiceschanged', pickVoices); } catch (e) {} }
+  /* the narrator picker (Audio settings): one voice for every spoken line, and a speed, as the earlier games'
+     ng_voice_pick / ng_voice_rate (read once from those keys) */
+  A.voices = function () { try { return (speechSynthesis.getVoices() || []).filter(function (v) { return /^en/i.test(v.lang || ''); }); } catch (e) { return []; } };
+  A.voicePick = function () { var v = S.get('voice_pick', null); if (v == null) { v = S.rawGet('ng_voice_pick') || ''; S.set('voice_pick', v); } return v || ''; };
+  A.voiceRate = function () { var r = S.get('voice_rate', null); if (r == null) { r = parseFloat(S.rawGet('ng_voice_rate')) || 1; S.set('voice_rate', r); } r = +r; return r > 0 ? r : 1; };
+  A.setVoice = function (name, rate) { if (name != null) S.set('voice_pick', name); if (rate != null) S.set('voice_rate', rate); };
   A.say = function (text, who) {
     if (A.muted || !text) return;
     A.duck(true); clearTimeout(A._duckT);
@@ -899,6 +1017,9 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       if (who === 'prime') { if (V.prime) u.voice = V.prime; u.rate = 0.82; u.pitch = 0.7; }
       else if (who === 'host') { if (V.host) u.voice = V.host; u.rate = 0.95; u.pitch = 1.0; }
       else { if (V.bot) u.voice = V.bot; u.rate = 0.95; u.pitch = 0.92; }
+      var pin = A.voicePick(), rm = A.voiceRate();
+      if (pin) { var pv = (speechSynthesis.getVoices() || []).filter(function (v) { return v.name === pin; })[0]; if (pv) { u.voice = pv; if (pv.lang) u.lang = pv.lang; } }
+      if (rm !== 1) u.rate = Math.max(0.5, Math.min(1.6, u.rate * rm));
       u.volume = 1;
       u.onend = u.onerror = function () { clearTimeout(A._duckT); A._duckT = setTimeout(function () { if (!speechSynthesis.speaking) A.duck(false); }, 150); };
       speechSynthesis.speak(u);
@@ -1503,10 +1624,19 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   G.isSingle = function (p) { p = p || G.pending; if (!p || !p.weeks || p.weeks.length !== 1) return false; if (p.single != null) return !!p.single; return ['Midterm', 'Adaptive', 'Daily'].indexOf(p.shortLabel) < 0 || C5.examByKey[p.weeks[0]].role === 'midterm'; };
   G.examKey = function (p) { p = p || G.pending; return G.isSingle(p) ? p.weeks[0] : null; };
   G.bossKey = function (p) { var k = G.examKey(p); return k ? C5.bossOf(k) : null; };
-  G.chaserKey = function (p) { return G.bossKey(p) || (D.scene && D.scene.chaser) || 'bot'; };
+  /* Today's boss (features.daily.boss): the Daily is chased by a boss that rotates by date, as the earlier games did */
+  G.dayBoss = function () {
+    var dl = DAILY && DAILY.boss; if (!dl) return null;
+    var keys = C5.bossKeys.slice(); if (keys.every(function (k) { return /^\d+$/.test(k); })) keys.sort(function (a, b) { return a - b; });
+    return keys.length ? keys[C5.dayIndex() % keys.length] : null;
+  };
+  /* the boss whose taunts, plate and sprite a round uses: the exam's boss, or the day's boss on the Daily */
+  G.tauntKey = function (p) { p = p || G.pending; return G.bossKey(p) || (p && p.dayBoss && D.bosses[p.dayBoss] ? p.dayBoss : null); };
+  G.chaserKey = function (p) { return G.tauntKey(p) || (D.scene && D.scene.chaser) || 'bot'; };
   G.world = function (p) {
     p = p || G.pending; var k = G.examKey(p);
     if (k) return C5.examByKey[k].world || D.bosses[C5.bossOf(k)].world;
+    if (p && p.dayBoss && D.bosses[p.dayBoss]) { var dek = C5.examOfBoss[p.dayBoss]; return (dek && C5.examByKey[dek].world) || D.bosses[p.dayBoss].world; }
     if (p && p.joyceSim && SIM && SIM.world) return SIM.world;
     if (p && p.mix) { var mx = G.mixById(p.mix); if (mx && mx.world) return mx.world; }
     return (D.scene && D.scene.mixedWorld) || (D.bosses[G.chaserKey(p)] || {}).world;
@@ -1515,15 +1645,17 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   G.theme = function (p) {
     p = p || G.pending; var sl = p && p.shortLabel;
     if (G.isSingle(p)) return 'exam:' + p.weeks[0];
-    if (p && p.joyceSim) return 'sim'; if (sl === 'Daily') return 'daily'; if (p && p.mix) return 'mix:' + p.mix;
+    if (p && p.joyceSim) return 'sim';
+    if (sl === 'Daily') return p.dayBoss && C5.examOfBoss[p.dayBoss] && DAILY.music !== 'daily' ? 'exam:' + C5.examOfBoss[p.dayBoss] : 'daily';
+    if (p && p.mix) return 'mix:' + p.mix;
     return 'adaptive';
   };
   G.mixById = function (id) { return (C5.F('mixes') || []).filter(function (m) { return m.id === id; })[0] || null; };
   G.taunts = function () {
-    var k = G.bossKey(), base = D.taunts.generic, bt = k && D.taunts.boss[k];
+    var k = G.tauntKey(), base = D.taunts.generic, bt = k && D.taunts.boss[k];
     if (!bt) return base; var m = {}; Object.keys(base).forEach(function (x) { m[x] = base[x]; }); Object.keys(bt).forEach(function (x) { m[x] = bt[x]; }); return m;
   };
-  G.voice = function () { var p = G.pending, k = G.examKey(p); return k && C5.isFinal(k) ? 'prime' : 'bot'; };
+  G.voice = function () { var p = G.pending, k = G.examKey(p) || (p && p.dayBoss && C5.examOfBoss[p.dayBoss]); return k && C5.isFinal(k) ? 'prime' : 'bot'; };
   G.botSay = function (kind) {
     var arr = G.taunts()[kind]; if (!arr || !arr.length) return;
     var line = C5.pick(arr); UI().bubble(line);
@@ -1535,7 +1667,9 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   function toItem(q, k, rnd) {
     var opts = q.a.map(function (text, i) { return { text: text, correct: q.c.indexOf(i) >= 0 }; });
     if (CO.shuffleAnswers) C5.shuffle(opts, rnd);
-    return { prompt: q.q, opts: opts, fb: q.fb || '', topic: q.t || 'General', week: k, multi: q.c.length > 1, easy: q.d === 'e' };
+    var it = { prompt: q.q, opts: opts, fb: q.fb || '', topic: q.t || 'General', week: k, multi: q.c.length > 1, easy: q.d === 'e' };
+    if (q.s) it.s = q.s;   // the question's own slide reference, preferred over the topic map
+    return it;
   }
   function frontEasy(pool) { var front = []; for (var i = 0; i < pool.length && front.length < 3; i++) { if (pool[i].easy) { front.push(pool.splice(i, 1)[0]); i--; } } return front.concat(pool); }
   G.weakTopics = function () {
@@ -1569,7 +1703,10 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   G.chooseSim = function () { G.pending = { weeks: (SIM.keys || C5.examKeys).slice(), label: SIM.name + ' · ' + G.rounds[G.simRound].n + ' questions', shortLabel: SIM.short, adaptive: false, joyceSim: true }; };
   /* a mixed round over some of the exams (e.g. "First half chase"): course features.mixes */
   G.chooseMix = function (id) { var m = G.mixById(id); G.pending = { weeks: m.keys.slice(), label: m.title, shortLabel: m.short || m.title, adaptive: false, mix: id }; };
-  G.chooseDaily = function () { G.pending = { weeks: C5.examKeys.slice().sort(), label: 'Daily Challenge, ' + new Date().toLocaleDateString(), shortLabel: 'Daily', adaptive: false }; };
+  G.chooseDaily = function () { G.pending = { weeks: C5.examKeys.slice().sort(), label: 'Daily Challenge, ' + new Date().toLocaleDateString(), shortLabel: 'Daily', adaptive: false }; var db = G.dayBoss(); if (db) G.pending.dayBoss = db; };
+
+  /* decode the chosen round's track while the student picks a length or reads the intro */
+  ['chooseExam', 'chooseAdaptive', 'chooseSim', 'chooseMix', 'chooseDaily'].forEach(function (n) { var f = G[n]; G[n] = function () { var r = f.apply(this, arguments); try { C5.audio.prefetch([G.theme()]); } catch (e) {} return r; }; });
 
   /* ------------------------------------------------------------------ loadout: characters, upgrades, difficulty */
   function applyLoadout(st) {
@@ -1590,18 +1727,22 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     st.scoreMult = d.scoreMult || 1;
   }
 
+  /* a round never repeats a question: it is capped at the size of its question pool (a short chapter bank) */
+  G.poolSize = function (p) { p = p || G.pending; if (!p || p.shortLabel === 'Daily') return Infinity; return p.weeks.reduce(function (s, k) { return s + ((C5.examByKey[k] || {}).questions || []).length; }, 0); };
+  G.roundN = function (key, p, poolLen) { var o = G.rounds[key]; p = p || G.pending; if (!o) return 0; if (p && (p.shortLabel === 'Daily' || p.joyceSim)) return o.n; return Math.max(1, Math.min(o.n, poolLen != null ? poolLen : G.poolSize(p))); };
+
   /* ------------------------------------------------------------------ start */
   G.start = function (key) {
-    var o = G.rounds[key], p = G.pending;
+    var o = G.rounds[key], p = G.pending, pool = G.buildPool(p);
     var st = G.state = {
-      key: key, n: o.n, player: D.startLead, chaser: 0, score: 0, streak: 0, maxStreak: 0, minLead: D.startLead, correct: 0, wrong: 0, answered: 0,
-      charges: { fifty: 1, freeze: 1, slow: 1 }, freezeArmed: false, coinsEarned: 0, pool: G.buildPool(p), idx: 0, locked: false,
+      key: key, n: G.roundN(key, p, pool.length), player: D.startLead, chaser: 0, score: 0, streak: 0, maxStreak: 0, minLead: D.startLead, correct: 0, wrong: 0, answered: 0,
+      charges: { fifty: 1, freeze: 1, slow: 1 }, freezeArmed: false, coinsEarned: 0, pool: pool, idx: 0, locked: false,
       timer: null, timeLeft: 0, sel: [], modeLabel: p.label, shortLabel: p.shortLabel, session: [], missed: [], ended: false
     };
     applyLoadout(st);
     if (p.joyceSim) { st.charges = { fifty: 0, freeze: 0, slow: 0 }; st.joyceSim = true; if (!st.medic) st.freezeArmed = false; }
     st.lead0 = st.player - st.chaser;
-    var bk = G.bossKey(p);
+    var bk = G.tauntKey(p);
     if (bk) G.bump(D.bosses[bk].id, 'encountered', 1);
     var bs = S.get('botstats', { encountered: 0, defeated: 0, bestStreak: 0 }); bs.encountered++; S.set('botstats', bs);
     C5.sessionQuizzes = (C5.sessionQuizzes || 0) + 1;
@@ -1610,6 +1751,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     track('quiz_start_detail', { mode_short: p.shortLabel, is_replay: G._replay.timesBefore > 0, times_completed_before: G._replay.timesBefore });
     G.t0 = Date.now();
     UI().enterGame(st);
+    C5.audio.prefetch(['ending', 'menu']);
     G.render();
     setTimeout(function () { G.botSay('start'); }, 300);
     setTimeout(G.saveResume, 800);
@@ -1660,7 +1802,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     // per-question difficulty stats ("student killer" tag)
     qstats = qstats || S.get('qstats', {}) || {};
     var h = hashQ(q.prompt), qs = qstats[h] || (qstats[h] = { c: 0, n: 0, topic: q.topic, week: q.week }); qs.n++; if (ok) qs.c++; S.set('qstats', qstats);
-    if (!ok) st.missed.push({ q: q.prompt, a: q.opts.filter(function (o) { return o.correct; }).map(function (o) { return o.text; }).join(' / '), fb: q.fb, week: q.week, topic: q.topic });
+    if (!ok) { var ms = { q: q.prompt, a: q.opts.filter(function (o) { return o.correct; }).map(function (o) { return o.text; }).join(' / '), fb: q.fb, week: q.week, topic: q.topic }; if (q.s) ms.s = q.s; st.missed.push(ms); }
     st.answered++;
     st.session.push({ week: q.week, topic: q.topic, correct: ok });
     var gain = 0;
@@ -1711,11 +1853,15 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     if (st.chaser >= st.player) { st.ended = true; clearInterval(st.timer); UI().caught(function () { G.end(false); }); return; }
     if (st.answered >= st.n) { st.ended = true; clearInterval(st.timer); UI().escaped(function () { G.end(true); }); }
   };
-  /* the reveal unlocks on beating the final (or, with no final, on mastering every exam) */
-  G.revealEarned = function (p) {
+  /* the reveal unlocks on beating the final (or, with no final, on mastering every exam). With no final it plays
+     ONCE, on the round that completes the course (as the earlier games did), or on the next win if a student had
+     already mastered everything without seeing it; afterwards it is replayed from the title. mastery is G.end's record. */
+  G.revealEarned = function (p, mastery) {
     var R = C5.F('reveal'), u = R && R.unlock;
     if (u && u.indexOf('mix:') === 0) return !!(p && p.mix === u.slice(4));   // e.g. the "Final Exam Chase" mix
-    var k = G.examKey(p); return C5.finalKey ? C5.isFinal(k) : G.masteredCount() === C5.examKeys.length;
+    var k = G.examKey(p); if (C5.finalKey) return C5.isFinal(k);
+    if (mastery && mastery.complete) return true;
+    return G.masteredCount() === C5.examKeys.length && !S.get('reveal', false);
   };
   G.next = function () { var st = G.state; if (!st || st.ended || !st.locked) return; st.idx++; G.render(); G.saveResume(); };
 
@@ -1753,7 +1899,9 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     var h = G.hist(); h.push({ d: Date.now(), mode: st.modeLabel, sh: st.shortLabel, score: st.score, c: st.correct, n: st.answered, won: won, bt: byTopic }); S.set('hist', h.slice(-60));
     // bot + boss stats
     var bs = S.get('botstats', { encountered: 0, defeated: 0, bestStreak: 0 }); if (won) bs.defeated++; bs.bestStreak = Math.max(bs.bestStreak || 0, st.maxStreak); S.set('botstats', bs);
-    var bk = G.bossKey(p), ek = G.examKey(p), mastery = null;
+    var bk = G.bossKey(p), ek = G.examKey(p), mastery = null, dk = !bk && G.tauntKey(p);
+    if (dk && won) G.bump(D.bosses[dk].id, 'defeated', 1);
+    if (dk && st.maxStreak) G.bump(D.bosses[dk].id, 'bestStreak', st.maxStreak);
     if (bk) {
       var bid = D.bosses[bk].id; if (won) G.bump(bid, 'defeated', 1); if (st.maxStreak) G.bump(bid, 'bestStreak', st.maxStreak);
       // mastery uses correct / round length, exactly as before, and is kept per exam
@@ -1775,7 +1923,8 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       }
       daily = { streak: streak, won: won };
     }
-    if (won && C5.F('reveal') && G.revealEarned(p)) S.set('reveal', true);
+    var reveal = !!(won && C5.F('reveal') && G.revealEarned(p, mastery));
+    if (reveal) S.set('reveal', true);
     // analytics, same event names and fields as the earlier game
     var weakest = null, wp = 101; Object.keys(byTopic).forEach(function (t) { var q = C5.pct(byTopic[t].c, byTopic[t].n); if (q < wp) { wp = q; weakest = t; } });
     track('quiz_complete', { mode: st.modeLabel, mode_short: st.shortLabel, won: !!won, score: st.score, accuracy: acc, questions_answered: st.answered, correct: st.correct, wrong: st.wrong, max_streak: st.maxStreak, duration_sec: Math.round((Date.now() - G.t0) / 1000), weakest_topic: weakest || 'none', joyce_sim: !!st.joyceSim });
@@ -1783,7 +1932,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     track('quiz_quality', { mode_short: st.shortLabel, finished: true, outran_bot: !!won, questions_answered: st.answered, total_questions: st.n, completion_pct: C5.pct(st.answered, st.n), avg_answer_sec: Math.round(avg * 10) / 10, fastest_answer_sec: times.length ? Math.round(Math.min.apply(null, times) * 10) / 10 : 0, fast_answer_count: st.fast || 0, fast_answer_ratio: st.answered ? ((st.fast || 0) / st.answered * 100) | 0 : 0, is_replay: G._replay.timesBefore > 0, times_completed_before: G._replay.timesBefore });
     if (won) { var cm = S.get('completed_modes', {}); cm[p.shortLabel] = (cm[p.shortLabel] || 0) + 1; S.set('completed_modes', cm); }
     G.clearResume();
-    UI().endScreen({ won: won, st: st, p: p, acc: acc, byTopic: byTopic, newly: newly, owned: owned, coinBonus: coinBonus, mastery: mastery, daily: daily, missed: st.missed });
+    UI().endScreen({ won: won, st: st, p: p, acc: acc, byTopic: byTopic, newly: newly, owned: owned, coinBonus: coinBonus, mastery: mastery, daily: daily, missed: st.missed, reveal: reveal });
     G.botSay(won ? 'win' : 'lose');
   };
   C5.sub('abandon', function (reason) {
@@ -1797,7 +1946,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     var st = G.state, p = G.pending; if (!st || !p || st.ended) return;
     var keep = ['n', 'player', 'chaser', 'score', 'streak', 'maxStreak', 'minLead', 'correct', 'wrong', 'answered', 'charges', 'freezeArmed', 'coinsEarned', 'idx', 'modeLabel', 'shortLabel', 'session', 'qTime', 'coinMult', 'gambler', 'charIcon', 'charId', 'scoreMult', 'pool', 'joyceSim', 'lead0', 'missed', 'key', 'medic'];
     var o = {}; keep.forEach(function (k) { o[k] = st[k]; });
-    S.set('resume', { ts: Date.now(), version: 5, pending: { weeks: p.weeks, label: p.label, shortLabel: p.shortLabel, adaptive: !!p.adaptive, joyceSim: !!p.joyceSim, single: p.single, mix: p.mix }, state: o });
+    S.set('resume', { ts: Date.now(), version: 5, pending: { weeks: p.weeks, label: p.label, shortLabel: p.shortLabel, adaptive: !!p.adaptive, joyceSim: !!p.joyceSim, single: p.single, mix: p.mix, dayBoss: p.dayBoss }, state: o });
   };
   G.loadResume = function () { var r = S.get('resume', null); return r && r.state && r.pending && r.state.pool && r.state.pool.length ? r : null; };
   G.clearResume = function () { S.del('resume'); };
@@ -1834,9 +1983,29 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     C5.importLegacy();
     UI.buildGame();
     UI.title();
+    UI.deepLink();
     C5.sub('coins', function () { var p = document.querySelectorAll('[data-coins]'); for (var i = 0; i < p.length; i++) p[i].textContent = G.coins(); });
     document.addEventListener('keydown', UI.keys);
     if (C5.imported && C5.imported.length) setTimeout(function () { C5.toast('Welcome back! Your coins, characters and progress came with you.'); }, 900);
+  };
+  /* deep links: ?wk=<exam key> opens that unit's round-length picker, ?wk=<mix id> (or first / second for the first
+     and second mix, or <v>half) a mixed round; also ?wk=final, daily, adaptive, sprint, lab. Unknown values do nothing. */
+  UI.deepLink = function () {
+    var m = /[?&]wk=([A-Za-z0-9_-]+)/.exec(location.search); if (!m) return;
+    var v = decodeURIComponent(m[1]), lv = v.toLowerCase(), mixes = F('mixes') || [], al = (CO.deepLinks || {})[lv];
+    if (al) { v = al; lv = String(al).toLowerCase(); }
+    var mx = mixes.filter(function (x) { return x.id.toLowerCase() === lv; })[0] || mixes.filter(function (x) { return x.id.toLowerCase() === lv + 'half'; })[0]
+      || (lv === 'first' ? mixes[0] : lv === 'second' ? mixes[1] : null);
+    var ek = C5.examByKey[v] ? v : (lv === 'final' && C5.finalKey) ? C5.finalKey : null;
+    setTimeout(function () {
+      if (UI.current !== 'title' || document.querySelector('.ov,.cine,.reveal,.intro')) return;
+      if (ek) { G.chooseExam(ek); UI.length(); }
+      else if (mx) { G.chooseMix(mx.id); UI.length(); }
+      else if (lv === 'adaptive' && F('adaptive')) { G.chooseAdaptive(); UI.length(); }
+      else if (lv === 'daily' && F('daily')) { var d = $('dailyBtn'); if (d) d.click(); }
+      else if (lv === 'sprint' && F('sprint')) C5.x.sprint();
+      else if (lv === 'lab' && F('lab')) C5.x.lab();
+    }, 400);
   };
   UI.show = function (name) {
     ['Title', 'Select', 'Length', 'Game', 'End'].forEach(function (n) { var e = $('scr' + n); if (e) e.classList.toggle('on', n === name); });
@@ -1857,11 +2026,12 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     var m = G.mastery(), mastered = G.masteredCount(), nK = C5.examKeys.length, sum = 0, nb = 0;
     C5.examKeys.forEach(function (k) { if (m[k] && m[k].best) { sum += m[k].best; nb++; } });
     var badgeN = Object.keys(G.badges()).length, revealOn = !!S.get('reveal', false) || /[?&]reveal\b/.test(location.search);
-    var diff = G.difficulty(), DLY = F('daily'), SIM = F('sim'), SPR = F('sprint'), LG = CO.logo || {};
+    var diff = G.difficulty(), DLY = F('daily'), SIM = F('sim'), SPR = F('sprint'), LG = CO.logo || {}, dayB = G.dayBoss() && D.bosses[G.dayBoss()];
     var tiles = (F('adaptive') ? tile('adaptBtn', 'brain', 'Adaptive Review', txt('adaptiveTile')) : '')
       + (C5.F('mixes') || []).map(function (mx) { return tile('mix_' + mx.id, mx.icon || 'bolt', mx.title, esc(mx.tile || mx.sub || '')); }).join('')
       + (SIM ? tile('simBtn', 'cal', SIM.tileName || cap1(SIM.name), esc(SIM.tile || (G.rounds[G.simRound].n + ' mixed questions · no lifelines · exam pressure'))) : '')
-      + (SPR ? tile('sprintBtn', 'dna', SPR.name, esc(txt('sprintTile'))) : '')
+      + (SPR ? tile('sprintBtn', SPR.timeline || C5.x.isTimeline() ? 'glass' : 'dna', SPR.name, esc(txt('sprintTile'))) : '')
+      + (F('lab') ? tile('labBtn', 'check', C5.labData().btn || C5.labData().name || 'Bonus Lab', esc(C5.x.labLine())) : '')
       + (F('bestiary') ? tile('bestBtn', 'book', txt('bestiaryName'), txt('bestiaryTile')) : '')
       + (F('shop') ? tile('shopBtn', 'shop', 'Shop', '<span class="coinpill">' + icon('coin', 12) + ' <span data-coins>' + G.coins() + '</span></span> · characters and upgrades') : '')
       + (F('cards') ? tile('cardsBtn', 'cards', txt('cardsName'), txt('cardsTile')) : '');
@@ -1873,7 +2043,8 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       + (res ? '<div class="resume"><div class="rt"><b>RESUME LAST ROUND</b>' + esc(res.pending.label) + ' · ' + (res.state.answered || 0) + ' / ' + res.state.n + ' answered · saved ' + ago(res.ts) + '</div><button class="btn blue" id="rsGo">Resume</button><button class="btn ghost" id="rsNo" aria-label="Discard saved round">Discard</button></div>' : '')
       + '<button class="btn primary playbtn" id="playBtn">' + icon('play', 22, '#2a1104') + ' PLAY</button>'
       + (DLY ? '<button class="card daily tap" id="dailyBtn"><div class="dico"><i>' + today.toLocaleDateString(undefined, { month: 'short' }).toUpperCase() + '</i><b>' + today.getDate() + '</b></div>'
-      + '<div class="dt"><b>DAILY CHALLENGE</b><span>' + (played ? 'Completed today · replay any time' : 'One shot per day · ' + DLY.n + ' questions across every ' + esc(CO.unit.toLowerCase())) + '</span></div>'
+      + '<div class="dt"><b>DAILY CHALLENGE</b><span>' + (played ? 'Completed today · replay any time' : 'One shot per day · ' + DLY.n + ' questions across every ' + esc(CO.unit.toLowerCase())) + '</span>'
+      + (dayB ? '<span class="dboss" id="dailyBoss">Today\'s ' + esc(txt('bossWord')) + ': <b style="color:' + dayB.color + '">' + esc(dayB.name) + '</b></span>' : '') + '</div>'
       + (dstreak > 0 ? '<div class="dstreak">' + icon('flame', 16) + '<br>' + dstreak + '-day</div>' : '') + '</button>' : '')
       + (tiles ? '<div class="tiles">' + tiles + '</div>' : '')
       + '<div class="cap" style="text-align:center;margin-bottom:6px">Difficulty</div>'
@@ -1899,11 +2070,16 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     ART.portrait($('charCv'), { runner: G.charId() });
     var on = function (id, fn) { var e = $(id); if (e) e.onclick = function (ev) { A.sfx.click(); fn(ev); }; };
     on('playBtn', function () { UI.select(); });
-    on('dailyBtn', function () { G.chooseDaily(); G.hostWelcome(); UI.cine({ cap: '★ DAILY CHALLENGE ★', title: "TODAY'S SEED", art: icon('cal', 84), bot: new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' }), sub: DLY.n + ' questions from across every ' + esc(CO.unit.toLowerCase()) + '. The same set as every student playing today. One shot per day for the personal-best streak.', dur: 3200 }, function () { G.start('daily'); }); });
+    on('dailyBtn', function () {
+      G.chooseDaily(); G.hostWelcome(); var db = G.pending.dayBoss && D.bosses[G.pending.dayBoss];
+      if (db) A.playTheme(G.theme());
+      UI.cine({ cap: '★ DAILY CHALLENGE ★', title: "TODAY'S SEED", art: db ? '' : icon('cal', 84), boss: db ? G.pending.dayBoss : null, bot: new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' }), sub: DLY.n + ' questions from across every ' + esc(CO.unit.toLowerCase()) + '. The same set as every student playing today. One shot per day for the personal-best streak.' + (db ? ' Today\'s ' + esc(txt('bossWord')) + ': <b style="color:' + db.color + '">' + esc(db.name) + '</b>.' : ''), dur: 3200 }, function () { G.start('daily'); });
+    });
     on('adaptBtn', function () { G.chooseAdaptive(); UI.length(); });
     (C5.F('mixes') || []).forEach(function (mx) { on('mix_' + mx.id, function () { G.chooseMix(mx.id); UI.length(); }); });
     on('simBtn', function () { var n = G.rounds[G.simRound].n; G.chooseSim(); UI.cine({ cap: SIM.cap || '★ PROCTOR MODE ★', title: SIM.name, art: icon('cal', 84), bot: SIM.bot || n + ' QUESTIONS · NO LIFELINES', sub: esc(SIM.sub || 'Mixed questions from every ' + CO.unit.toLowerCase() + ' with exam-day pressure. Lifelines are locked for this run.'), dur: 2800 }, function () { G.start(G.simRound); }); });
     on('sprintBtn', function () { C5.x.sprint(); });
+    on('labBtn', function () { C5.x.lab(); });
     on('bestBtn', function () { S.set('seenbestiary', 1); C5.x.bestiary(); });
     on('shopBtn', function () { C5.x.shop(); });
     on('cardsBtn', function () { C5.x.printCards(); });
@@ -1964,7 +2140,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     var head = b ? '<div class="lenhead"><canvas data-boss="' + bk + '"></canvas><div class="lh"><span class="cap" style="color:' + b.color + '">' + esc(p.label) + '</span><b>' + esc(b.name) + '</b><span>' + esc(C5.examByKey[ek].name) + '</span></div></div>'
       : '<div class="lenhead"><canvas data-boss="' + G.chaserKey(p) + '"></canvas><div class="lh"><span class="cap">' + esc(p.label) + '</span><b>' + esc(CO.chaserName) + '</b><span>' + esc(mx ? (mx.sub || mx.title) : 'Drawing from the topics you have been missing') + '</span></div></div>';
     var html = '<div class="topbar"><button class="iconbtn" id="lenBack" aria-label="Back">' + icon('back', 20) + '</button><h2>ROUND LENGTH</h2>' + soundBtn() + '</div><div class="selwrap">' + head + '<div class="lengthgrid">';
-    G.roundOrder.forEach(function (k) { var o = G.rounds[k]; html += '<button class="card lcard tap" data-r="' + k + '"><div class="lb" style="background:' + o.badge + '">' + esc(o.label) + '</div><div class="lt"><b>' + o.n + ' questions</b><span>' + esc(o.desc) + '</span></div></button>'; });
+    G.roundOrder.forEach(function (k) { var o = G.rounds[k], n = G.roundN(k, p); html += '<button class="card lcard tap" data-r="' + k + '"><div class="lb" style="background:' + o.badge + '">' + esc(o.label) + '</div><div class="lt"><b>' + n + ' questions</b><span>' + esc(n < o.n ? 'Every question in this ' + (bk ? CO.unit.toLowerCase() : 'round') + ', none repeated.' : o.desc) + '</span></div></button>'; });
     html += '</div><p class="diffdesc" style="margin-top:14px">Longer rounds are tougher. Difficulty: <b>' + D.difficulties[G.difficulty()].label + '</b> · playing as <b>' + esc(G.charById(G.charId()).name) + '</b></p></div>';
     el.innerHTML = html;
     UI.show('Length');
@@ -2119,11 +2295,11 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     $('lockBtn').classList.add('hide');
   };
   UI.feedback = function (ok, verdict, q, extra) {
-    var fb = $('feedback'), sl = slideRef(q.week, q.topic);
+    var fb = $('feedback'), sl = q.s || slideRef(q.week, q.topic);
     fb.className = 'feedback show ' + (ok ? 'ok' : 'no');
     fb.innerHTML = '<div class="verdict">' + icon(ok ? 'check' : 'heart', 18) + esc(verdict) + '</div><div class="why">' + esc(q.fb) + '</div>'
-      + (sl ? '<button class="review" data-week="' + esc(q.week) + '" data-topic="' + esc(q.topic) + '">' + icon('book', 14) + ' Tap to review · ' + esc(sl) + ' ›</button>' : '') + (extra || '');
-    var r = fb.querySelector('.review'); if (r) r.onclick = function () { C5.x.micro(r.dataset.week, r.dataset.topic); };
+      + (sl ? '<button class="review" data-week="' + esc(q.week) + '" data-topic="' + esc(q.topic) + '" data-s="' + esc(q.s || '') + '">' + icon('book', 14) + ' Tap to review · ' + esc(sl) + ' ›</button>' : '') + (extra || '');
+    var r = fb.querySelector('.review'); if (r) r.onclick = function () { C5.x.micro(r.dataset.week, r.dataset.topic, r.dataset.s); };
     setTimeout(function () { var p = $('panel'); if (p.scrollHeight > p.clientHeight) fb.scrollIntoView({ block: 'nearest', behavior: C5.reducedMotion() ? 'auto' : 'smooth' }); }, 60);
   };
   function slideRef(w, t) { try { return D.slides[w][t] || ''; } catch (e) { return ''; } }
@@ -2175,7 +2351,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
 
   /* ------------------------------------------------------------------ end screen */
   UI.endScreen = function (r) {
-    var st = r.st, p = r.p, ck = G.chaserKey(p), b = D.bosses[ck], won = r.won, bk = G.bossKey(p);
+    var st = r.st, p = r.p, ck = G.chaserKey(p), b = D.bosses[ck], won = r.won, bk = G.tauntKey(p);
     if (UI.sc) UI.sc.paused = true;
     var lines = ((bk && D.taunts.boss[bk]) || D.taunts.generic)[won ? 'win' : 'lose'] || [''];
     var rows = Object.keys(r.byTopic).map(function (t) { var x = r.byTopic[t]; return { t: t, c: x.c, n: x.n, p: C5.pct(x.c, x.n), wk: x.wk }; });
@@ -2207,12 +2383,12 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     if (r.mastery && r.mastery.first) {
       setTimeout(function () {
         var e = C5.examByKey[r.mastery.key];
-        UI.cine({ cap: '★ CHAPTER MASTERED ★', title: C5.isFinal(r.mastery.key) ? C5.examTitle(r.mastery.key).toUpperCase() : C5.unitLabel(r.mastery.key).toUpperCase() + ' · ' + e.name, art: icon('trophy', 96), bot: r.mastery.acc + '% ACCURACY', sub: 'First time hitting ' + CO.masteryThreshold + '% on this ' + CO.unit.toLowerCase() + '. ' + esc(txt('masteredLine')), dur: 3800 });
+        UI.cine({ cap: esc(txt('masteredCap')), title: C5.isFinal(r.mastery.key) ? C5.examTitle(r.mastery.key).toUpperCase() : C5.unitLabel(r.mastery.key).toUpperCase() + ' · ' + e.name, art: icon('trophy', 96), bot: r.mastery.acc + '% ACCURACY', sub: 'First time hitting ' + CO.masteryThreshold + '% on this ' + CO.unit.toLowerCase() + '. ' + esc(txt('masteredLine')), dur: 3800 });
         C5.x.coinShower(40);
       }, 1200);
       if (r.mastery.complete) setTimeout(function () { UI.cine({ cap: '★ COURSE COMPLETE ★', title: CO.completeName, art: icon('star', 110), bot: 'ALL ' + C5.examKeys.length + ' ' + esc((CO.unitPlural || CO.unit + 's').toUpperCase()) + ' · MASTERED', sub: esc(txt('completeLine')), dur: 6500 }); C5.x.coinShower(80); }, 5500);
     }
-    if (won && F('reveal') && G.revealEarned(p)) setTimeout(function () { C5.x.reveal(); }, (C5.finalKey || p.mix) ? 2200 : 12500);
+    if (r.reveal) setTimeout(function () { if (!document.querySelector('.reveal')) C5.x.reveal(); }, (C5.finalKey || p.mix) ? 2200 : r.mastery && r.mastery.complete ? 12500 : 5200);
   };
   UI.tryNext = function () {
     var opts = []; if (C5.finalKey) opts.push('the ' + esc(cap1(C5.examTitle(C5.finalKey)))); if (F('sim')) opts.push(esc(F('sim').name.toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); })));
@@ -2315,6 +2491,9 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
   };
 
   /* ------------------------------------------------------------------ bestiary */
+  /* the mixed-round chaser gets its own Bestiary entry (and a Boss Card) when the course gives it lore */
+  X.chaserKey = function () { var k = (D.scene && D.scene.chaser) || 'bot', b = D.bosses[k]; return b && (b.lore || b.intro) && C5.examOfBoss[k] == null ? k : null; };
+  function chaserCap() { return (D.text || {}).chaserCap || 'The chaser'; }
   X.bestiary = function () {
     var ov = X.open('<div id="bestBody"></div>');
     function gallery() {
@@ -2323,17 +2502,35 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
         + C5.bossKeys.map(function (k) {
           var b = D.bosses[k], ek = C5.examOfBoss[k], s = bs[b.id] || {}, un = (s.encountered || 0) > 0 || C5.isFinal(ek);
           return '<button class="card gcard tap' + (un ? '' : ' locked') + '" data-k="' + k + '" style="--bc:' + (un ? b.color : '#3d4a8f') + '"><span class="gt">' + esc(C5.isFinal(ek) ? C5.txt('finalShort').toUpperCase() : C5.unitLabel(ek).toUpperCase()) + '</span><canvas data-b="' + k + '"' + (un ? '' : ' data-l="1"') + '></canvas><div class="gn">' + (un ? esc(b.name) : '??? LOCKED') + '</div><div class="gs">' + (un ? esc(b.subtitle) + '<br>' + icon('play', 9) + ' ' + (s.encountered || 0) + ' · ' + icon('trophy', 9) + ' ' + (s.defeated || 0) + ' · ' + icon('flame', 9) + ' ' + (s.bestStreak || 0) : 'Play this ' + CO.unit.toLowerCase() + ' to reveal') + '</div></button>';
-        }).join('') + '</div>';
+        }).join('') + (function () {
+          var ck = X.chaserKey(); if (!ck) return '';
+          var b = D.bosses[ck], s = S.get('botstats', {}) || {};
+          return '<button class="card gcard tap chaser" data-k="' + ck + '" style="--bc:' + b.color + '"><span class="gt">' + esc(chaserCap().toUpperCase()) + '</span><canvas data-b="' + ck + '"></canvas><div class="gn">' + esc(b.name) + '</div><div class="gs">' + esc(b.subtitle || '') + '<br>' + icon('play', 9) + ' ' + (s.encountered || 0) + ' · ' + icon('trophy', 9) + ' ' + (s.defeated || 0) + ' · ' + icon('flame', 9) + ' ' + (s.bestStreak || 0) + '</div></button>';
+        })() + '</div>';
       [].forEach.call($('bestBody').querySelectorAll('canvas'), function (c, i) { ART.portrait(c, { boss: c.dataset.b, locked: !!c.dataset.l, phase: i * 0.4 }); });
       [].forEach.call($('bestBody').querySelectorAll('.gcard'), function (c) { c.onclick = function () { if (c.classList.contains('locked')) { C5.toast('Play this ' + CO.unit.toLowerCase() + ' to reveal the boss'); return; } A.sfx.click(); detail(c.dataset.k); }; });
     }
     function detail(k) {
+      if (k === X.chaserKey()) return chaserDetail(k);
       var b = D.bosses[k], ek = C5.examOfBoss[k], s = G.bossStats()[b.id] || {}, wr = s.encountered ? Math.round((s.defeated || 0) / s.encountered * 100) : 0, who = [b.years, b.title].filter(Boolean).join(' · ');
       $('bestBody').innerHTML = '<button class="btn ghost" id="bBack" style="margin-bottom:8px">' + icon('back', 14) + ' Gallery</button><div class="bdet" style="--bc:' + b.color + '"><div class="bp"><canvas data-b="' + k + '"></canvas></div><div>'
         + '<div class="cap" style="color:' + b.color + '">' + (C5.isFinal(ek) ? '★ ' + esc(C5.examTitle(ek)[0] + C5.examTitle(ek).slice(1).toLowerCase()) + ' ' + esc(txt('overlordWord')) + ' ★' : '★ ' + esc(C5.unitLabel(ek)) + ' ' + esc(txt('bossWord')) + ' ★') + '</div><h2 style="color:' + b.color + ';text-shadow:0 0 18px ' + b.color + '">' + esc(b.name) + '</h2>' + (who ? '<div class="bwho">' + esc(who) + '</div>' : '') + '<div style="color:var(--muted);font-style:italic">' + esc(b.subtitle) + '</div>'
         + '<div class="bstats4">' + [['ENCOUNTERED', s.encountered || 0], ['DEFEATED', s.defeated || 0], ['WIN RATE', wr + '%'], ['BEST STREAK', s.bestStreak || 0]].map(function (x) { return '<div class="card stat"><b>' + x[1] + '</b><span>' + x[0] + '</span></div>'; }).join('') + '</div>'
         + '<p>' + esc(b.intro) + '</p><p>' + esc(b.lore) + '</p><h3 class="cap" style="color:' + b.color + '">' + esc(C5.kindTxt(b, 'moveset')) + '</h3>' + b.attacks.map(function (a) { return '<div class="atk"><b>★ ' + esc(a.name) + '</b>' + esc(a.desc) + '</div>'; }).join('')
         + (b.weakness ? '<h3 class="cap" style="color:' + b.color + ';margin-top:12px">' + esc(C5.kindTxt(b, 'weakness')[0] + C5.kindTxt(b, 'weakness').slice(1).toLowerCase()) + '</h3><p>' + esc(b.weakness) + '</p>' : '') + '<p class="cap">World: ' + esc(D.worlds[C5.examByKey[ek].world || b.world] || '') + '</p></div></div>';
+      ART.portrait($('bestBody').querySelector('canvas'), { boss: k });
+      $('bBack').onclick = function () { A.sfx.click(); gallery(); };
+      ov.scrollTop = 0;
+    }
+    function chaserDetail(k) {
+      var b = D.bosses[k], s = S.get('botstats', {}) || {}, wr = s.encountered ? Math.round((s.defeated || 0) / s.encountered * 100) : 0;
+      $('bestBody').innerHTML = '<button class="btn ghost" id="bBack" style="margin-bottom:8px">' + icon('back', 14) + ' Gallery</button><div class="bdet" style="--bc:' + b.color + '"><div class="bp"><canvas data-b="' + k + '"></canvas></div><div>'
+        + '<div class="cap" style="color:' + b.color + '">★ ' + esc(chaserCap()) + ' ★</div><h2 style="color:' + b.color + ';text-shadow:0 0 18px ' + b.color + '">' + esc(b.name) + '</h2><div style="color:var(--muted);font-style:italic">' + esc(b.subtitle || '') + '</div>'
+        + '<div class="bstats4">' + [['ENCOUNTERED', s.encountered || 0], ['DEFEATED', s.defeated || 0], ['WIN RATE', wr + '%'], ['BEST STREAK', s.bestStreak || 0]].map(function (x) { return '<div class="card stat"><b>' + x[1] + '</b><span>' + x[0] + '</span></div>'; }).join('') + '</div>'
+        + (b.intro ? '<p>' + esc(b.intro) + '</p>' : '') + (b.lore ? '<p>' + esc(b.lore) + '</p>' : '')
+        + ((b.attacks || []).length ? '<h3 class="cap" style="color:' + b.color + '">' + esc(C5.kindTxt(b, 'moveset')) + '</h3>' + b.attacks.map(function (a) { return '<div class="atk"><b>★ ' + esc(a.name) + '</b>' + esc(a.desc) + '</div>'; }).join('') : '')
+        + (b.weakness ? '<h3 class="cap" style="color:' + b.color + ';margin-top:12px">' + esc(C5.kindTxt(b, 'weakness')[0] + C5.kindTxt(b, 'weakness').slice(1).toLowerCase()) + '</h3><p>' + esc(b.weakness) + '</p>' : '')
+        + '<p class="cap">World: ' + esc(D.worlds[(D.scene && D.scene.mixedWorld) || b.world] || D.worlds[b.world] || '') + '</p></div></div>';
       ART.portrait($('bestBody').querySelector('canvas'), { boss: k });
       $('bBack').onclick = function () { A.sfx.click(); gallery(); };
       ov.scrollTop = 0;
@@ -2362,8 +2559,8 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     var cite = D.citeLabel || 'Review: ';
     X.doc('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Study sheet</title><style>' + PRINT_CSS
       + '.it{display:flex;gap:12px;border-top:1px solid #ccc;padding:12px 0;break-inside:avoid;}.n{font-weight:bold;width:22px;}.q{font-weight:bold;margin:0 0 6px;}.a,.fb,.src{margin:4px 0;}.src{color:#73000a;font-style:italic;}</style></head><body>'
-      + '<h1>' + esc(CO.label + ' ' + CO.name + ' Chase') + ' · Study sheet</h1><h2>' + esc(label) + ' · ' + new Date().toLocaleDateString() + ' · ' + missed.length + ' to review</h2><button onclick="window.print()">Print</button>'
-      + missed.map(function (m, i) { var sl = C5.ui.slideRef(m.week, m.topic); return '<div class="it"><div class="n">' + (i + 1) + '</div><div><p class="q">' + esc(m.q) + '</p><p class="a"><b>Answer:</b> ' + esc(m.a) + '</p><p class="fb">' + esc(m.fb) + '</p>' + (sl ? '<p class="src">' + esc(cite) + esc(C5.unitLabel(m.week) + ', ' + m.topic + ': ' + sl) + '</p>' : '') + '</div></div>'; }).join('') + '</body></html>');
+      + '<h1>' + esc(txt('studySheetTitle')) + ' · Study sheet</h1><h2>' + esc(label) + ' · ' + new Date().toLocaleDateString() + ' · ' + missed.length + ' to review</h2><button onclick="window.print()">Print</button>'
+      + missed.map(function (m, i) { var sl = m.s || C5.ui.slideRef(m.week, m.topic); return '<div class="it"><div class="n">' + (i + 1) + '</div><div><p class="q">' + esc(m.q) + '</p><p class="a"><b>Answer:</b> ' + esc(m.a) + '</p><p class="fb">' + esc(m.fb) + '</p>' + (sl ? '<p class="src">' + esc(cite) + esc(C5.unitLabel(m.week) + ', ' + m.topic + ': ' + sl) + '</p>' : '') + '</div></div>'; }).join('') + '</body></html>');
   };
   X.printCards = function () {
     X.doc('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Boss Cards</title><style>' + PRINT_CSS.replace('max-width:780px', 'max-width:1000px')
@@ -2371,18 +2568,23 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       + '.pic{width:120px;height:110px;flex:0 0 120px;border-radius:10px;overflow:hidden;background:#0a0f20;}.pic img{width:100%;height:100%;image-rendering:pixelated;}.ch{font:bold 10px monospace;letter-spacing:2px;color:#666;}.nm{font-size:19px;font-weight:bold;}.sb{font-style:italic;color:#444;font-size:13px;}'
       + '.lore{font-size:12.5px;line-height:1.35;}.h{font:bold 11px monospace;letter-spacing:1px;text-transform:uppercase;margin-top:6px;color:#333;}ul{margin:4px 0 4px 16px;padding:0;font-size:12px;}.wk{font-size:12.5px;margin:4px 0 0;}'
       + '@media print{.card,.pic{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}@media (max-width:700px){.grid{grid-template-columns:1fr;}}</style></head><body>'
-      + '<h1>' + esc(D.cardsTitle || CO.label + ' · The Bosses') + '</h1><h2>Study cards from ' + esc(CO.label + ' ' + CO.name + ' Chase') + '. The ' + esc(C5.kindTxt(D.bosses[C5.bossKeys[0]], 'weakness').toLowerCase()) + ' line is what to know for that ' + esc(CO.unit.toLowerCase()) + '.</h2><button onclick="window.print()">Print</button><div class="grid">'
+      + '<h1>' + esc(D.cardsTitle || CO.label + ' · The Bosses') + '</h1><h2>' + esc((D.text || {}).cardsIntro ? txt('cardsIntro') : 'Study cards from ' + txt('studySheetTitle') + '. The ' + C5.kindTxt(D.bosses[C5.bossKeys[0]], 'weakness').toLowerCase() + ' line is what to know for that ' + CO.unit.toLowerCase() + '.') + '</h2><button onclick="window.print()">Print</button><div class="grid">'
       + C5.bossKeys.map(function (k) {
         var b = D.bosses[k], ek = C5.examOfBoss[k], who = [b.years, b.title].filter(Boolean).join(' · ');
         return '<div class="card" style="--c:' + b.color + '"><div class="top"><div class="pic"><img alt="' + esc(b.name) + '" src="' + ART.bossURL(k, 3, b.color) + '"></div><div><div class="ch">' + esc(C5.isFinal(ek) ? (C5.examTitle(ek) + ' ' + txt('overlordWord')).toUpperCase() : (C5.unitLabel(ek) + ' ' + txt('bossWord')).toUpperCase()) + '</div><div class="nm">' + esc(b.name) + '</div>' + (who ? '<div class="sb">' + esc(who) + '</div>' : '') + '<div class="sb">' + esc(b.subtitle) + '</div></div></div>'
           + '<p class="lore">' + esc(b.lore) + '</p><div class="h">' + esc(C5.kindTxt(b, 'moveset')) + '</div><ul>' + b.attacks.map(function (a) { return '<li><b>' + esc(a.name) + '</b> ' + esc(a.desc) + '</li>'; }).join('') + '</ul>' + (b.weakness ? '<div class="h">' + esc(C5.kindTxt(b, 'weaknessCards')) + '</div><p class="wk">' + esc(b.weakness) + '</p>' : '') + '</div>';
-      }).join('') + '</div></body></html>');
+      }).join('') + (function () {
+        var ck = X.chaserKey(); if (!ck) return '';
+        var b = D.bosses[ck];
+        return '<div class="card" style="--c:' + b.color + '"><div class="top"><div class="pic"><img alt="' + esc(b.name) + '" src="' + ART.bossURL(ck, 3, b.color) + '"></div><div><div class="ch">' + esc(chaserCap().toUpperCase()) + '</div><div class="nm">' + esc(b.name) + '</div><div class="sb">' + esc(b.subtitle || '') + '</div></div></div>'
+          + '<p class="lore">' + esc(b.lore || b.intro) + '</p>' + ((b.attacks || []).length ? '<div class="h">' + esc(C5.kindTxt(b, 'moveset')) + '</div><ul>' + b.attacks.map(function (a) { return '<li><b>' + esc(a.name) + '</b> ' + esc(a.desc) + '</li>'; }).join('') + '</ul>' : '') + (b.weakness ? '<div class="h">' + esc(C5.kindTxt(b, 'weaknessCards')) + '</div><p class="wk">' + esc(b.weakness) + '</p>' : '') + '</div>';
+      })() + '</div></body></html>');
   };
 
   /* ------------------------------------------------------------------ micro-review (tap a slide reference) */
-  X.micro = function (week, topic) {
+  X.micro = function (week, topic, qs) {
     var ex = C5.examByKey[week]; if (!ex) return;
-    var sl = C5.ui.slideRef(week, topic) || 'see the ' + txt('deck'), seen = {}, rs = [], ul = C5.unitLabel(week), hasDeck = F('slides');
+    var sl = qs || C5.ui.slideRef(week, topic) || 'see the ' + txt('deck'), seen = {}, rs = [], ul = C5.unitLabel(week), hasDeck = F('slides');
     ex.questions.forEach(function (q) { if (q.t === topic && q.fb && !seen[q.fb]) { seen[q.fb] = 1; rs.push(q.fb); } });
     X.open('<div class="micro"><div class="cap">★ Micro-review ★</div><h2>' + esc(topic) + '</h2><div style="color:var(--muted);font-size:13px">' + esc(ul + ' · ' + (hasDeck ? sl + ' · ' : '') + rs.length + ' rationale' + (rs.length === 1 ? '' : 's')) + '</div><ul>'
       + (rs.slice(0, 8).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') || '<li>No saved rationales for this topic yet.' + (hasDeck ? ' Open the ' + esc(txt('deck')) + ' for ' + esc(ul) + ' for the full coverage.' : '') + '</li>')
@@ -2417,25 +2619,71 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       + '</table><p style="color:var(--muted);font-size:13px">On phones and tablets, just tap.</p>');
   };
 
-  /* ------------------------------------------------------------------ Sequence Sprint */
+  /* ------------------------------------------------------------------ Sequence Sprint, or a Timeline Sprint */
+  /* Timeline Sprint (data.timeline {events: [{y, s, t, c}], deal, sub}, or sequences that carry "years"): deal a
+     random hand of dated events, tap them earliest first, each placed card shows its year; one best time. */
+  function yearNum(y) { var m = /(-?\d+)/.exec(String(y)); if (!m) return 0; var n = +m[1]; return /BCE|BC\b/i.test(y) ? -n : n; }
+  X.timelineEvents = function () {
+    var T = D.timeline;
+    if (T && T.events && T.events.length) return T.events.map(function (e) { return { y: e.y, s: e.s != null ? +e.s : yearNum(e.y), t: e.t, c: e.c || '' }; });
+    var seen = {}, out = [];
+    (D.sequences || []).forEach(function (q) {
+      if (!q.years) return;
+      q.steps.forEach(function (t, i) { if (seen[t]) return; seen[t] = 1; out.push({ y: q.years[i], s: yearNum(q.years[i]) + i * 1e-6, t: t, c: (q.chapters || [])[i] || '' }); });
+    });
+    return out;
+  };
+  X.isTimeline = function () { var SPR = F('sprint'); return !!(SPR && (SPR.timeline || (D.timeline && D.timeline.events) || ((D.sequences || []).length && D.sequences.every(function (q) { return q.years && q.years.length === q.steps.length; })))); };
+  function bestStore() { var b = S.get('sprint_best', {}); if (typeof b === 'number') b = { timeline: b }; if (!b || typeof b !== 'object') b = {}; if (b.timeline == null) { var o = S.get('timeline_best', null); if (typeof o === 'number') b.timeline = o; } return b; }
   var ss = null;
   X.sprint = function () {
-    var SEQ = D.sequences; if (!SEQ.length) return;
-    var prevTheme = A.music.want; A.playTheme('sprint'); var SPR = F('sprint');
-    var ov = X.open('<div style="text-align:center"><div class="cap">' + icon('dna', 14) + ' ' + esc(SPR.name) + '</div><h2 id="ssTitle"></h2><div id="ssSub" style="color:var(--muted);font-size:13.5px"></div></div>'
-      + '<div class="ts-hud"><span id="ssLives"></span><span id="ssTime">0.0s</span><span id="ssBest"></span></div><div class="ts-msg" id="ssMsg" aria-live="polite"></div><div class="ts-line" id="ssLine"></div><div class="ts-grid" id="ssGrid"></div>'
-      + '<div style="text-align:center;margin-top:14px"><button class="btn blue" id="ssNext">Next process ›</button></div>', null, function () { clearInterval(X._ssi); A.playTheme(prevTheme || 'title'); });
+    var SEQ = D.sequences || [], TL = X.isTimeline(), EV = TL ? X.timelineEvents() : null; if (TL ? EV.length < 3 : !SEQ.length) return;
+    var prevTheme = A.music.want; A.playTheme('sprint'); var SPR = F('sprint'), T = D.timeline || {}, deal = Math.min(EV ? EV.length : 0, T.deal || SPR.deal || 8);
+    var ov = X.open('<div style="text-align:center"><div class="cap">' + icon(TL ? 'glass' : 'dna', 14) + ' ' + esc(SPR.name) + '</div><h2 id="ssTitle"></h2><div id="ssSub" style="color:var(--muted);font-size:13.5px"></div></div>'
+      + '<div class="ts-hud"><span id="ssLives"></span><span id="ssTime">0.0s</span><span id="ssBest"></span></div><div class="ts-msg" id="ssMsg" aria-live="polite"></div><div class="ts-line' + (TL ? ' tl' : '') + '" id="ssLine"></div><div class="ts-grid" id="ssGrid"></div>'
+      + '<div style="text-align:center;margin-top:14px"><button class="btn blue" id="ssNext">' + (TL ? esc(T.again || 'New timeline') : 'Next process') + ' ›</button></div>', TL ? 'tlov' : null, function () { clearInterval(X._ssi); A.playTheme(prevTheme || 'title'); });
+    function bestOf(id) { return bestStore()[id]; }
     function hud() {
       if (!ss) return;
       $('ssLives').innerHTML = Array.apply(null, Array(3)).map(function (_, i) { return icon('heart', 14, i < ss.lives ? null : '#2a3350'); }).join('');
       if (!ss.done) $('ssTime').textContent = ((Date.now() - ss.t0) / 1000).toFixed(1) + 's';
-      var best = (S.get('sprint_best', {}) || {})[ss.seq.id]; $('ssBest').textContent = best ? 'BEST ' + best.toFixed(1) + 's' : 'BEST: none';
+      var best = bestOf(ss.id); $('ssBest').textContent = best ? 'BEST ' + (+best).toFixed(1) + 's' : 'BEST: none';
     }
+    function record(id, secs) { var all = bestStore(), rec = !all[id] || secs < all[id]; if (rec) { all[id] = secs; S.set('sprint_best', all); } return rec; }
     function cite(s) { return s.cite || 'your notes'; }
+    function freshTimeline() {
+      var pick = C5.shuffle(EV.slice()).slice(0, deal), order = pick.slice().sort(function (a, b) { return a.s - b.s; });
+      ss = { id: 'timeline', order: order, next: 0, lives: 3, t0: Date.now(), done: false };
+      $('ssTitle').textContent = T.title || ''; $('ssTitle').style.display = T.title ? '' : 'none'; $('ssSub').textContent = T.sub || (C5.numWord(deal) + ' moments from the course. Tap them in order, earliest first. Three wrong taps and history wins.');
+      $('ssLine').innerHTML = ''; $('ssMsg').textContent = 'Which of these came first?';
+      var g = $('ssGrid'); g.innerHTML = '';
+      pick.forEach(function (ev) {
+        var b = C5.el('button', 'ts-card tap'); b.innerHTML = esc(ev.t) + (ev.c ? '<small>' + esc(ev.c) + '</small>' : ''); b.dataset.s = ev.s;
+        b.onclick = function () {
+          if (ss.done) return;
+          var want = ss.order[ss.next];
+          if (ev === want || ev.s === want.s) {
+            if (ev !== want) { var j = ss.order.indexOf(ev); ss.order[j] = want; ss.order[ss.next] = ev; }   // two events in the same year: either first
+            ss.next++; b.remove(); var p = C5.el('div', 'ts-placed'); p.innerHTML = '<b>' + esc(ev.y) + '</b>' + esc(ev.t); $('ssLine').appendChild(p); A.sfx.correct();
+            if (ss.next === ss.order.length) {
+              ss.done = true; var secs = (Date.now() - ss.t0) / 1000, rec = record('timeline', secs);
+              $('ssMsg').textContent = 'Timeline complete in ' + secs.toFixed(1) + 's' + (rec ? ' · new best' : '') + '. ' + (T.done || 'History, in order.'); A.sfx.levelup();
+            } else $('ssMsg').textContent = 'Right. What came next?';
+          } else {
+            ss.lives--; b.classList.remove('bad'); void b.offsetWidth; b.classList.add('bad'); A.sfx.wrong();
+            if (ss.lives <= 0) { ss.done = true; $('ssMsg').textContent = (T.lose || 'History wins this round.') + ' Next in line was ' + want.y + ': ' + want.t + '. Try a new timeline.'; }
+            else $('ssMsg').textContent = 'Not yet. That one (' + ev.y + ') comes later. Look for something earlier.';
+          }
+          hud();
+        };
+        g.appendChild(b);
+      });
+      hud(); clearInterval(X._ssi); X._ssi = setInterval(hud, 100);
+    }
     function fresh() {
-      var s = C5.pick(SEQ); if (ss && SEQ.length > 1) while (s === ss.seq) s = C5.pick(SEQ);
+      var s = C5.pick(SEQ); if (ss && ss.seq && SEQ.length > 1) while (s === ss.seq) s = C5.pick(SEQ);
       var cards = C5.shuffle(s.steps.map(function (t, i) { return { t: t, i: i }; }));
-      ss = { seq: s, next: 0, lives: 3, t0: Date.now(), done: false };
+      ss = { seq: s, id: s.id, next: 0, lives: 3, t0: Date.now(), done: false };
       $('ssTitle').textContent = s.title; $('ssSub').textContent = (s.ch === 'Final' ? 'Final' : C5.examByKey[s.ch] ? C5.unitLabel(s.ch) : CO.unit + ' ' + s.ch) + ' · ' + (s.prompt || 'Earliest step first') + '. Three wrong taps and the process fails.';
       $('ssLine').innerHTML = ''; $('ssMsg').textContent = 'Which step comes first?';
       var g = $('ssGrid'); g.innerHTML = '';
@@ -2446,8 +2694,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
           if (c.i === ss.next) {
             ss.next++; b.remove(); var p = C5.el('div', 'ts-placed'); p.innerHTML = '<b>STEP ' + ss.next + '</b>' + esc(c.t); $('ssLine').appendChild(p); A.sfx.correct();
             if (ss.next === s.steps.length) {
-              ss.done = true; var secs = (Date.now() - ss.t0) / 1000, all = S.get('sprint_best', {}) || {}, rec = !all[s.id] || secs < all[s.id];
-              if (rec) { all[s.id] = secs; S.set('sprint_best', all); }
+              ss.done = true; var secs = (Date.now() - ss.t0) / 1000, rec = record(s.id, secs);
               $('ssMsg').textContent = 'Sequence complete in ' + secs.toFixed(1) + 's' + (rec ? ' · new best' : '') + '. Review: ' + cite(s) + '.'; A.sfx.levelup();
             } else $('ssMsg').textContent = 'Right. What comes next?';
           } else {
@@ -2461,7 +2708,8 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       });
       hud(); clearInterval(X._ssi); X._ssi = setInterval(hud, 100);
     }
-    $('ssNext').onclick = fresh; fresh();
+    ss = null;
+    $('ssNext').onclick = TL ? freshTimeline : fresh; (TL ? freshTimeline : fresh)();
   };
 
   /* ------------------------------------------------------------------ instructor dashboard + CSV */
@@ -2495,67 +2743,200 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
       + '<div class="meta">' + cr.meta.map(function (m) { return esc(m.replace('{N}', C5.totalQuestions)); }).join('<br>') + '<br><br><b>Art and sound</b><br>' + cr.art.map(esc).join('<br>') + '</div></div>', null, function () { A.playTheme(prevTheme || 'title'); });
   };
 
-  /* ------------------------------------------------------------------ the reveal: the overlord shatters, the professor steps out */
+  /* ------------------------------------------------------------------ the reveal: the mask cracks, the professor steps out */
+  /* Which figure is unmasked: reveal.boss (e.g. "bot", the chaser), else the final's boss, else (no final) the course's
+     chaser. Persons and institutions never shatter: they tip the hat and fade (reveal.style "gentle" forces that).
+     Captions: the figure's name, then reveal.crackCap while it cracks, then reveal.shock. */
+  X.revealBoss = function () {
+    var R = D.reveal || {};
+    if (R.boss && D.bosses[R.boss]) return R.boss;
+    if (C5.finalKey) return C5.bossOf(C5.finalKey);
+    var ck = D.scene && D.scene.chaser; return ck && D.bosses[ck] ? ck : C5.bossKeys[C5.bossKeys.length - 1];
+  };
   X.reveal = function () {
     if (document.querySelector('.reveal')) return;
     var R = D.reveal, img = (window.CHASE_ASSETS || {}).host || '';
+    var FK = X.revealBoss(), FB = D.bosses[FK], gentle = C5.dignified(FB) || R.style === 'gentle', rows4 = ART.bossRows(FK) >= 4;
+    var cap0 = R.boss ? FB.name : (CO.overlord || FB.name), crack = R.crackCap || 'MASK SHATTERS';
     var r = C5.el('div', 'reveal');
-    r.innerHTML = '<div class="rcap" id="rvCap">★ ' + esc(CO.overlord) + ' ★</div><div class="rstage"><canvas class="pix" id="rvCv"></canvas>' + (img ? '<img alt="' + esc(R.name) + '" src="' + img + '">' : '') + '</div>'
+    r.innerHTML = '<div class="rcap" id="rvCap">★ ' + esc(cap0) + ' ★</div><div class="rstage"><canvas class="pix" id="rvCv"></canvas>' + (img ? '<img alt="' + esc(R.name) + '" src="' + img + '">' : '') + '</div>'
       + '<div class="rshock">' + esc(R.shock) + '</div><div class="rname">' + esc(R.name) + '</div><div class="rpay">' + R.payoff.join('<br>') + '</div>'
       + '<button class="btn primary rbtn" id="rvGo">' + esc(R.button) + '</button><div class="rcred">' + esc(R.credit) + '</div>';
     document.body.appendChild(r);
     requestAnimationFrame(function () { r.classList.add('show'); });
     C5.track('final_boss_defeated', { milestone: (CO.analytics && CO.analytics.milestone) || String(CO.overlord || 'final').toLowerCase().replace(/[^a-z0-9]+/g, '_') + '_cleared' });
-    var FK = C5.finalKey ? C5.bossOf(C5.finalKey) : C5.bossKeys[C5.bossKeys.length - 1], gentle = C5.dignified(D.bosses[FK]) || R.style === 'gentle', rows4 = ART.bossRows(FK) >= 4;
     A.stopTheme(); A.sfx.secret();
-    // the overlord on a canvas: idle, cracks, shatters into pixels
-    var cv = $('rvCv'), g = cv.getContext('2d'); cv.width = 96; cv.height = 88; g.imageSmoothingEnabled = false;
-    var t0 = performance.now(), shards = null, done = false;
+    function unmask() { A.sfx.chord([523, 659, 784, 1047, 1319]); r.classList.add('unmasked'); $('rvCap').textContent = '★ ' + R.shock + ' ★'; A.playTheme('reveal'); setTimeout(function () { A.say(R.speech, 'host'); }, 2400); }
+    // the figure on a canvas (1.5 times the frame, so the halves and shards have room): idle, cracks, splits apart
+    var cv = $('rvCv'), g = cv.getContext('2d'), W = 144, Hh = 132, OX = 24, OY = 22; cv.width = W; cv.height = Hh; g.imageSmoothingEnabled = false;
+    var t0 = performance.now(), shards = null, halves = null, crackPath = null;
+    function crackLine() {
+      // a jagged vertical crack through the figure's opaque pixels, top to bottom
+      var c2 = document.createElement('canvas'); c2.width = 96; c2.height = 88; var g2 = c2.getContext('2d', { willReadFrequently: true }); ART.boss(g2, FK, 1, 0, 0, 0);
+      var d = g2.getImageData(0, 0, 96, 88).data, top = 88, bot = 0, xs = 0, n = 0;
+      for (var y = 0; y < 88; y++) for (var x = 0; x < 96; x++) if (d[(y * 96 + x) * 4 + 3] > 0) { if (y < top) top = y; if (y > bot) bot = y; xs += x; n++; }
+      var cx = n ? Math.round(xs / n) : 48, pts = [], x0 = cx;
+      for (var yy = top; yy <= bot; yy += 3) { x0 = C5.clamp(x0 + Math.round((Math.random() - 0.5) * 5), cx - 6, cx + 6); pts.push([x0, yy]); }
+      return { pts: pts, cx: cx, img: c2 };
+    }
     (function loop(now) {
       if (!r.isConnected) return;
-      var t = (now - t0) / 1000; g.clearRect(0, 0, 96, 88);
-      if (t < 1.6) ART.boss(g, FK, 0, Math.floor(t * 8) % 8, 0, 0);
-      else if (gentle) {
-        // a dignified final figure tips the hat (defeat row) and fades; no shattering
+      var t = (now - t0) / 1000; g.clearRect(0, 0, W, Hh);
+      if (t < 1.6) { ART.boss(g, FK, 0, Math.floor(t * 8) % 8, OX, OY); requestAnimationFrame(loop); return; }
+      if (gentle) {
+        // a dignified figure tips the hat (defeat row) and fades; no shattering
         if (!r._cr) { r._cr = 1; $('rvCap').textContent = '★ ' + (R.capGentle || 'THE CURTAIN FALLS') + ' ★'; }
         var a2 = Math.max(0, 1 - Math.max(0, t - 3.2) / 1.4); g.globalAlpha = a2;
-        if (rows4) ART.boss(g, FK, 3, Math.min(7, Math.floor((t - 1.6) / 1.6 * 8)), 0, 0); else ART.boss(g, FK, 0, 0, 0, 0);
+        if (rows4) ART.boss(g, FK, 3, Math.min(7, Math.floor((t - 1.6) / 1.6 * 8)), OX, OY); else ART.boss(g, FK, 0, 0, OX, OY);
         g.globalAlpha = 1;
-        if (t > 3.0 && !shards) { shards = []; A.sfx.chord([523, 659, 784, 1047, 1319]); r.classList.add('unmasked'); $('rvCap').textContent = '★ ' + R.shock + ' ★'; A.playTheme('reveal'); setTimeout(function () { A.say(R.speech, 'host'); }, 2400); }
-        if (a2 <= 0) { done = true; return; }
+        if (t > 3.0 && !shards) { shards = []; unmask(); }
+        if (a2 > 0) requestAnimationFrame(loop);
+        return;
       }
-      else if (t < 3.0) { $('rvCap').textContent = '★ MASK SHATTERS ★'; ART.boss(g, FK, 1, Math.floor(t * 12) % 8, Math.round((Math.random() - 0.5) * 4), Math.round((Math.random() - 0.5) * 3)); if (!r._cr) { r._cr = 1; A.sfx.impact(); } }
-      else {
-        if (!shards) {
-          var c2 = document.createElement('canvas'); c2.width = 96; c2.height = 88; var g2 = c2.getContext('2d'); ART.boss(g2, FK, 1, 0, 0, 0);
-          var d = g2.getImageData(0, 0, 96, 88).data; shards = [];
-          for (var i = 0; i < 96 * 88; i += 2) if (d[i * 4 + 3] > 0) shards.push({ x: i % 96, y: i / 96 | 0, vx: (i % 96 - 48) / 20 + (Math.random() - 0.5), vy: ((i / 96 | 0) - 44) / 26 - Math.random() * 1.5, c: 'rgb(' + d[i * 4] + ',' + d[i * 4 + 1] + ',' + d[i * 4 + 2] + ')' });
-          A.sfx.chord([523, 659, 784, 1047, 1319]); r.classList.add('unmasked'); $('rvCap').textContent = '★ ' + R.shock + ' ★';
-          A.playTheme('reveal'); setTimeout(function () { A.say(R.speech, 'host'); }, 2400);
-        }
-        var a = Math.max(0, 1 - (t - 3) / 1.6); g.globalAlpha = a;
-        shards.forEach(function (s) { s.x += s.vx; s.y += s.vy; s.vy += 0.05; g.fillStyle = s.c; g.fillRect(Math.round(s.x), Math.round(s.y), 1, 1); });
-        g.globalAlpha = 1;
-        if (a <= 0) { done = true; return; }
+      if (t < 3.0) {
+        // cracking: the enraged frame shakes and a glowing crack runs down the mask
+        if (!r._cr) { r._cr = 1; $('rvCap').textContent = '★ ' + crack + ' ★'; A.sfx.impact(); crackPath = crackLine(); }
+        var jx = Math.round((Math.random() - 0.5) * 4), jy = Math.round((Math.random() - 0.5) * 3);
+        ART.boss(g, FK, 1, Math.floor(t * 12) % 8, OX + jx, OY + jy);
+        var k = Math.min(crackPath.pts.length, Math.ceil((t - 1.6) / 1.1 * crackPath.pts.length));
+        g.fillStyle = '#fff6d0'; g.shadowColor = '#ffd23f'; g.shadowBlur = 6;
+        for (var i = 0; i < k; i++) { var p = crackPath.pts[i], q = crackPath.pts[i + 1] || p; g.fillRect(OX + jx + p[0], OY + jy + p[1], 1, 3); if (q[0] !== p[0]) g.fillRect(OX + jx + Math.min(p[0], q[0]), OY + jy + p[1] + 2, Math.abs(q[0] - p[0]) + 1, 1); }
+        g.shadowBlur = 0;
+        if (t > 2.4 && !r._cr2) { r._cr2 = 1; A.sfx.impact(); }
+        requestAnimationFrame(loop); return;
       }
-      requestAnimationFrame(loop);
+      if (!halves) {
+        // the mask splits along the crack: two halves fall away, pixels spray from the seam
+        var cp = crackPath || crackLine(), src = cp.img, L = document.createElement('canvas'), Rr = document.createElement('canvas');
+        L.width = Rr.width = 96; L.height = Rr.height = 88; var gl = L.getContext('2d'), gr = Rr.getContext('2d');
+        gl.drawImage(src, 0, 0); gr.drawImage(src, 0, 0);
+        gl.globalCompositeOperation = 'destination-out'; gr.globalCompositeOperation = 'destination-out';
+        cp.pts.forEach(function (p) { gl.fillRect(p[0] + 1, p[1], 96, 3); gr.fillRect(0, p[1], p[0] + 1, 3); });
+        gl.fillRect(cp.cx + 7, 0, 96, cp.pts.length ? cp.pts[0][1] : 0); gr.fillRect(0, 0, cp.cx - 6, cp.pts.length ? cp.pts[0][1] : 0);
+        halves = { L: L, R: Rr };
+        var d = src.getContext('2d', { willReadFrequently: true }).getImageData(0, 0, 96, 88).data; shards = [];
+        for (var j = 0; j < 96 * 88; j += 3) { var x = j % 96, y = j / 96 | 0; if (d[j * 4 + 3] > 0 && Math.abs(x - cp.cx) < 9) shards.push({ x: x, y: y, vx: (x - cp.cx) / 3 + (Math.random() - 0.5) * 1.6, vy: -Math.random() * 2.2, c: 'rgb(' + d[j * 4] + ',' + d[j * 4 + 1] + ',' + d[j * 4 + 2] + ')' }); }
+        unmask();
+      }
+      var u = t - 3, a = Math.max(0, 1 - u / 1.7), off = u * u * 26 + u * 10;
+      g.globalAlpha = a;
+      g.save(); g.translate(OX + 48 - off, OY + 70 + u * u * 30); g.rotate(-u * 0.5); g.drawImage(halves.L, -48, -70); g.restore();
+      g.save(); g.translate(OX + 48 + off, OY + 70 + u * u * 30); g.rotate(u * 0.5); g.drawImage(halves.R, -48, -70); g.restore();
+      shards.forEach(function (s2) { s2.x += s2.vx; s2.y += s2.vy; s2.vy += 0.08; g.fillStyle = s2.c; g.fillRect(Math.round(OX + s2.x), Math.round(OY + s2.y), 1, 1); });
+      g.globalAlpha = 1;
+      if (a > 0) requestAnimationFrame(loop);
     })(t0);
     $('rvGo').onclick = function () { try { speechSynthesis.cancel(); } catch (e) {} r.classList.remove('show'); setTimeout(function () { r.remove(); if (C5.ui.current === 'title') C5.ui.title(); }, 900); };
     r._close = $('rvGo').onclick;
   };
 
-  /* ------------------------------------------------------------------ audio settings: music and sound volumes (saved) */
+  /* ------------------------------------------------------------------ audio settings: music and sound volumes, the narrator (saved) */
   X.audio = function () {
+    var tts = A.voices && 'speechSynthesis' in window;
     X.open('<h2>Audio</h2><div class="aset">'
       + '<label><span>Music</span><input type="range" min="0" max="100" step="5" id="volMusic" value="' + Math.round(A.vol.music * 100) + '"><b id="volMusicV">' + Math.round(A.vol.music * 100) + '</b></label>'
       + '<label><span>Sound effects</span><input type="range" min="0" max="100" step="5" id="volSfx" value="' + Math.round(A.vol.sfx * 100) + '"><b id="volSfxV">' + Math.round(A.vol.sfx * 100) + '</b></label>'
       + '<button class="btn wide" id="volMute">' + (A.muted ? 'Sound is off: turn on' : 'Turn all sound off') + '</button>'
+      + (tts ? '<div class="narr"><div class="cap">Narrator voice</div><select id="vPick" aria-label="Narrator voice"></select>'
+        + '<label><span>Speed</span><input type="range" min="0.7" max="1.25" step="0.05" id="vRate" value="' + A.voiceRate() + '"><b id="vRateV">' + A.voiceRate().toFixed(2) + '×</b></label>'
+        + '<button class="btn ghost" id="vTest">' + icon('play', 12) + ' Test the voice</button><p class="ntip">For the most natural voices, open in Chrome or play on a phone.</p></div>' : '')
       + '<p style="color:var(--muted);font-size:13px">' + esc(txt('audioNote')) + '</p></div>');
     var m = $('volMusic'), f = $('volSfx');
     m.oninput = function () { A.setVol('music', m.value / 100); $('volMusicV').textContent = m.value; };
     f.oninput = function () { A.setVol('sfx', f.value / 100); $('volSfxV').textContent = f.value; };
     f.onchange = function () { A.sfx.coin(); };
     $('volMute').onclick = function () { A.setMuted(!A.muted); $('volMute').textContent = A.muted ? 'Sound is off: turn on' : 'Turn all sound off'; };
+    if (!tts) return;
+    var sel = $('vPick'), ra = $('vRate');
+    function fill() {
+      var pin = A.voicePick(), vs = A.voices();
+      sel.innerHTML = '<option value="">Auto (best available)</option>' + vs.map(function (v) { return '<option value="' + esc(v.name) + '"' + (v.name === pin ? ' selected' : '') + '>' + esc(v.name) + (v.localService === false ? ' (online)' : '') + '</option>'; }).join('');
+      if (pin && !vs.some(function (v) { return v.name === pin; })) sel.insertAdjacentHTML('beforeend', '<option value="' + esc(pin) + '" selected>' + esc(pin) + ' (not on this device)</option>');
+    }
+    fill(); try { speechSynthesis.addEventListener('voiceschanged', fill); } catch (e) {}
+    sel.onchange = function () { A.setVoice(sel.value, null); A.say('The narrator will sound like this.', 'host'); };
+    ra.oninput = function () { A.setVoice(null, +ra.value); $('vRateV').textContent = (+ra.value).toFixed(2) + '×'; };
+    $('vTest').onclick = function () { A.say('This is how your narrator will sound as you play.', 'host'); };
+  };
+
+  /* ------------------------------------------------------------------ Bonus Lab: tap-to-match pairs (data.lab or data.bonusLab) */
+  /* rounds of term / meaning pairs: tap a meaning, then the term it belongs to. Progress {roundId: true} is kept in
+     the v5 key "lab" and read once from the earlier game's nglab_<key>. An optional bonus: no coins, no effect on
+     mastery, exactly as before. */
+  X.labDone = function () {
+    var L = C5.labData() || {}, d = S.get('lab', null);
+    if (!d) { var old = null; try { old = JSON.parse(S.rawGet('nglab_' + (L.key || 'x')) || 'null'); } catch (e) {} d = old && typeof old === 'object' ? old : {}; if (old) S.set('lab', d); }
+    return d;
+  };
+  X.labLine = function () {
+    var L = C5.labData() || { rounds: [] }, dn = L.rounds.filter(function (r) { return X.labDone()[r.id]; }).length;
+    return dn === L.rounds.length && dn ? 'Lab complete · every round matched' : (dn ? dn + ' / ' + L.rounds.length + ' rounds matched · ' : '') + (L.tile || 'Optional bonus · tap to match');
+  };
+  function confetti(color) {
+    if (C5.reducedMotion()) return;
+    var cols = [color || '#7ed85a', '#f4c45a', '#5ec8ff', '#ff5d73', '#b06cff'];
+    for (var i = 0; i < 46; i++) (function (k) {
+      var c = C5.el('div', 'labconf'); c.style.background = cols[k % cols.length]; c.style.left = (Math.random() * 100) + 'vw';
+      var d = 1.2 + Math.random() * 1.1; c.style.transition = 'transform ' + d + 's linear, top ' + d + 's linear, opacity ' + d + 's'; document.body.appendChild(c);
+      requestAnimationFrame(function () { c.style.top = (70 + Math.random() * 25) + 'vh'; c.style.transform = 'translateX(' + (Math.random() * 140 - 70) + 'px) rotate(' + (Math.random() * 720) + 'deg)'; c.style.opacity = '0'; });
+      setTimeout(function () { c.remove(); }, d * 1000 + 160);
+    })(i);
+  }
+  X.lab = function () {
+    var L = C5.labData(); if (!L || !L.rounds || !L.rounds.length) return;
+    var prevTheme = A.music.want; A.playTheme('lab');
+    var ov = X.open('<div id="labBody"></div>', 'labov', function () { A.playTheme(prevTheme || 'title'); if (C5.ui.current === 'title') C5.ui.title(); });
+    var body = $('labBody'), cur = null, sel = null, matched = 0;
+    function home() {
+      var done = X.labDone(), R = L.rounds, dn = R.filter(function (r) { return done[r.id]; }).length, all = dn === R.length;
+      body.innerHTML = '<div class="labhead"><span class="lic">' + esc(L.icon || '') + '</span><h2>' + esc(L.name || 'Bonus Lab') + '</h2><span class="lbadge">BONUS</span></div>'
+        + '<p class="labsub">' + esc(L.sub || 'Match each term to its meaning. Optional bonus: your chase progress is untouched.') + '</p>'
+        + '<div class="labprog">' + R.map(function (r) { return '<span class="lpip' + (done[r.id] ? ' on' : '') + '" title="' + esc(r.name) + '" style="--ac:' + (r.color || '#7ed85a') + '">' + esc(r.icon || '•') + (done[r.id] ? '<i>' + icon('check', 12) + '</i>' : '') + '</span>'; }).join('') + '</div>'
+        + '<div class="labcount" aria-live="polite">' + dn + ' / ' + R.length + ' rounds mastered' + (all ? ' · ' + icon('trophy', 14) + ' LAB COMPLETE!' : '') + '</div>'
+        + '<div class="labgrid">' + R.map(function (r) { return '<button class="card lcardr tap' + (done[r.id] ? ' done' : '') + '" data-id="' + esc(r.id) + '" style="--ac:' + (r.color || '#7ed85a') + '"><span class="lri">' + esc(r.icon || '') + '</span><b>' + esc(r.name) + '</b><span class="lrs">' + (done[r.id] ? icon('check', 12) + ' Mastered' : r.pairs.length + ' to match') + '</span></button>'; }).join('') + '</div>';
+      [].forEach.call(body.querySelectorAll('.lcardr'), function (b) { b.onclick = function () { A.sfx.accept(); start(b.dataset.id); }; });
+      ov.scrollTop = 0;
+    }
+    function start(id) {
+      cur = L.rounds.filter(function (r) { return r.id === id; })[0]; if (!cur) return; sel = null; matched = 0;
+      var order = C5.shuffle(cur.pairs.map(function (_, i) { return i; }));
+      body.innerHTML = '<div class="labround" style="--ac:' + (cur.color || '#7ed85a') + '"><div class="labhead"><span class="lic">' + esc(cur.icon || '') + '</span><h2>' + esc(cur.name) + '</h2><span class="lmc"><b id="labMc">0</b> / ' + cur.pairs.length + '</span></div>'
+        + '<p class="labsub">Tap a <b>meaning</b>, then tap the <b>term</b> it belongs to.</p><div class="labmsg" id="labMsg" aria-live="polite"></div>'
+        + '<div class="labcols"><div><div class="cap">Terms</div>' + cur.pairs.map(function (p, i) { return '<button class="ltarget" data-i="' + i + '"><b>' + esc(p[0]) + '</b><span>tap its meaning</span></button>'; }).join('') + '</div>'
+        + '<div><div class="cap">Meanings</div>' + order.map(function (i) { return '<button class="ltile" data-i="' + i + '">' + esc(cur.pairs[i][1]) + '</button>'; }).join('') + '</div></div>'
+        + '<button class="btn ghost" id="labBack">' + icon('back', 14) + ' All rounds</button></div>';
+      [].forEach.call(body.querySelectorAll('.ltile'), function (t) { t.onclick = function () { pickTile(t); }; });
+      [].forEach.call(body.querySelectorAll('.ltarget'), function (t) { t.onclick = function () { tapTarget(t); }; });
+      $('labBack').onclick = function () { A.sfx.back(); home(); };
+      ov.scrollTop = 0;
+    }
+    function shake(e) { e.classList.remove('shake'); void e.offsetWidth; e.classList.add('shake'); }
+    function pickTile(t) {
+      if (t.classList.contains('used')) return;
+      var was = t.classList.contains('sel'); [].forEach.call(body.querySelectorAll('.ltile'), function (x) { x.classList.remove('sel'); });
+      if (was) { sel = null; return; } sel = t; t.classList.add('sel'); A.sfx.click();
+      $('labMsg').textContent = 'Now tap the term it belongs to.';
+    }
+    function tapTarget(tg) {
+      if (tg.classList.contains('ok')) return;
+      if (!sel) { shake(tg); $('labMsg').textContent = 'Pick a meaning first.'; return; }
+      var ti = sel.dataset.i, gi = tg.dataset.i;
+      if (ti === gi) {
+        tg.classList.add('ok'); tg.querySelector('span').textContent = cur.pairs[gi][1];
+        sel.classList.add('used'); sel.classList.remove('sel'); sel = null; matched++;
+        $('labMc').textContent = matched; A.sfx.correct(); $('labMsg').textContent = matched < cur.pairs.length ? 'Matched. Keep going.' : 'Round complete!';
+        if (matched === cur.pairs.length) {
+          var done = X.labDone(); done[cur.id] = true; S.set('lab', done); A.sfx.levelup(); confetti(cur.color);
+          var all = L.rounds.every(function (r) { return done[r.id]; });
+          C5.track('lab_round_complete', { round: cur.id, lab_complete: all });
+          setTimeout(function () { if (!ov.isConnected) return; home(); if (all) setTimeout(function () { confetti('#f4c45a'); A.sfx.finish(); }, 180); }, 650);
+        }
+      } else {
+        shake(tg); var b = sel; b.classList.add('bad'); setTimeout(function () { b.classList.remove('bad', 'sel'); }, 400); sel = null; A.sfx.wrong();
+        $('labMsg').textContent = 'Not that one. Pick a meaning and try again.';
+      }
+    }
+    home();
   };
 
   /* ------------------------------------------------------------------ coin shower */
@@ -2584,7 +2965,7 @@ table.it th{font-size:11px;letter-spacing:1px;color:var(--muted)}
     document.body.appendChild(a); requestAnimationFrame(function () { a.classList.add('show'); });
     var cyc = C5.ui.cycle();
     atSc = C5.Scene(a.querySelector('canvas'), { mode: 'attract', cycle: cyc, minW: 200 }); atSc.setWorld(cyc[0].world); atSc.setBoss(cyc[0].boss); atSc.setRunner(G.charId()); atSc.lead = 3; atSc.snapBoss();
-    scIdx = 0; var show = function () { var s = D.attract[scIdx % D.attract.length]; $('aCap').textContent = s.cap; $('aHead').textContent = s.headline; $('aSub').textContent = s.sub.replace(/Quiz-Bot 3000 has its own bestiary entry/g, 'Every boss has its own bestiary entry').replace(/the Quiz-Bot 3000/g, 'the exam bosses').replace(/Quiz-Bot 3000/g, 'the bosses'); scIdx++; };
+    scIdx = 0; var show = function () { var s = D.attract[scIdx % D.attract.length]; $('aCap').textContent = s.cap; $('aHead').textContent = s.headline; $('aSub').textContent = X.chaserKey() ? s.sub : s.sub.replace(/Quiz-Bot 3000 has its own bestiary entry/g, 'Every boss has its own bestiary entry').replace(/the Quiz-Bot 3000/g, 'the exam bosses').replace(/Quiz-Bot 3000/g, 'the bosses'); scIdx++; };
     show(); scT = setInterval(show, 5000);
   };
   X.attractExit = function () { var a = document.querySelector('.attract'); clearInterval(scT); if (atSc) { atSc.destroy(); atSc = null; } if (a) { a.classList.remove('show'); setTimeout(function () { a.remove(); }, 400); } X.attractArm(); };
